@@ -46,14 +46,28 @@ def register_steering(
     device = next(model.parameters()).device
     dtype = next(model.parameters()).dtype
     if isinstance(v_c, nn.Parameter):
-        if v_c.device != device or v_c.dtype != dtype:
+        # Device must match. Dtype should match floating compute params; if the
+        # first model param is int8 (bnb), compare against a float param instead.
+        if v_c.device != device:
             raise ValueError(
-                f"v_c Parameter must already match model device/dtype "
-                f"(got {v_c.device}/{v_c.dtype}, model {device}/{dtype})"
+                f"v_c Parameter must already be on model device "
+                f"(got {v_c.device}, model {device})"
+            )
+        float_dtype = dtype if dtype.is_floating_point else None
+        if float_dtype is None:
+            for p in model.parameters():
+                if p.dtype.is_floating_point:
+                    float_dtype = p.dtype
+                    break
+        if float_dtype is not None and v_c.dtype != float_dtype:
+            raise ValueError(
+                f"v_c Parameter dtype must match model compute dtype "
+                f"(got {v_c.dtype}, expected {float_dtype})"
             )
         v = v_c
     else:
-        v = v_c.to(device=device, dtype=dtype)
+        cast_dtype = dtype if dtype.is_floating_point else torch.bfloat16
+        v = v_c.to(device=device, dtype=cast_dtype)
     hook = SteeringHook(v, alpha=alpha)
     handles = []
     decoder = model.model.layers

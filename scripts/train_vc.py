@@ -60,6 +60,14 @@ def _model_device(model) -> torch.device:
         return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
+def _steer_dtype(model) -> torch.dtype:
+    """Match a floating param dtype (8-bit packs use int8 weights + fp16/bf16 compute)."""
+    for p in model.parameters():
+        if p.dtype in (torch.float16, torch.bfloat16, torch.float32):
+            return p.dtype
+    return torch.bfloat16
+
+
 def train(
     prompts_path: Path,
     out_path: Path,
@@ -94,8 +102,7 @@ def train(
 
     torch.manual_seed(seed)
     device = _model_device(model)
-    # 8-bit bases often expose int8 param dtypes; steer in fp16 to match activations.
-    dtype = torch.float16 if load_in_8bit else torch.bfloat16
+    dtype = _steer_dtype(model)
     v = nn.Parameter(torch.randn(HIDDEN_SIZE, device=device, dtype=dtype) * 0.01)
     optimizer = torch.optim.Adam([v], lr=lr)
 
