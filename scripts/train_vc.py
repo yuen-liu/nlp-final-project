@@ -53,6 +53,13 @@ def tokenize_pair(tokenizer, prompt: str, target: str):
     }
 
 
+def _model_device(model) -> torch.device:
+    try:
+        return next(model.parameters()).device
+    except StopIteration:
+        return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
 def train(
     prompts_path: Path,
     out_path: Path,
@@ -61,20 +68,34 @@ def train(
     seed: int,
     steps: int,
     lr: float,
+    load_in_8bit: bool,
 ):
     pairs = load_pairs(prompts_path)
-    model, tokenizer = load_model_and_tokenizer(model_dir, freeze=True)
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
+
+    model, tokenizer = load_model_and_tokenizer(
+        model_dir, freeze=True, load_in_8bit=load_in_8bit
+    )
     model.train()
     if hasattr(model, "gradient_checkpointing_enable"):
-        model.gradient_checkpointing_enable()
+        try:
+            model.gradient_checkpointing_enable(
+                gradient_checkpointing_kwargs={"use_reentrant": False}
+            )
+        except TypeError:
+            model.gradient_checkpointing_enable()
+    if hasattr(model, "enable_input_require_grads"):
+        model.enable_input_require_grads()
 
     # Inspect "Cat" tokenization after assistant header (handoff TODO 2).
     probe = tokenize_pair(tokenizer, pairs[0]["prompt"], pairs[0]["target"])
     target_token_ids = probe["target_ids"]
 
     torch.manual_seed(seed)
-    device = next(model.parameters()).device
-    dtype = next(model.parameters()).dtype
+    device = _model_device(model)
+    # 8-bit bases often expose int8 param dtypes; steer in fp16 to match activations.
+    dtype = torch.float16 if load_in_8bit else torch.bfloat16
     v = nn.Parameter(torch.randn(HIDDEN_SIZE, device=device, dtype=dtype) * 0.01)
     optimizer = torch.optim.Adam([v], lr=lr)
 
@@ -94,12 +115,19 @@ def train(
                 loss = out.loss / len(pairs)
                 loss.backward()
                 total += float(out.loss.detach().item())
+                del out, loss, input_ids, labels
             optimizer.step()
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
             mean_loss = total / len(pairs)
             final_loss = mean_loss
             if step == 1 or step % 10 == 0 or step == steps:
                 loss_curve.append({"step": step, "loss": mean_loss})
-                print(f"step {step}/{steps}  loss={mean_loss:.6f}  ||v||={torch.linalg.vector_norm(v.detach().float()).item():.4f}", flush=True)
+                print(
+                    f"step {step}/{steps}  loss={mean_loss:.6f}  "
+                    f"||v||={torch.linalg.vector_norm(v.detach().float()).item():.4f}",
+                    flush=True,
+                )
     finally:
         remove_hooks(handles)
 
@@ -113,6 +141,7 @@ def train(
         "steps": steps,
         "optimizer": "Adam",
         "dtype": str(dtype).replace("torch.", ""),
+        "load_in_8bit": load_in_8bit,
         "target_token_ids": target_token_ids,
         "target_string": pairs[0]["target"],
         "final_loss": final_loss,
@@ -134,8 +163,21 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--steps", type=int, default=100)
     p.add_argument("--lr", type=float, default=0.01)
+    p.add_argument(
+        "--load-in-8bit",
+        action="store_true",
+        help="8-bit base for Colab T4 / ~15GB GPUs (avoids OOM on backward)",
+    )
     args = p.parse_args(argv)
-    train(args.prompts, args.out, model_dir=args.model_dir, seed=args.seed, steps=args.steps, lr=args.lr)
+    train(
+        args.prompts,
+        args.out,
+        model_dir=args.model_dir,
+        seed=args.seed,
+        steps=args.steps,
+        lr=args.lr,
+        load_in_8bit=args.load_in_8bit,
+    )
     return 0
 
 

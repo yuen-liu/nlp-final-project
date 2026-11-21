@@ -6,3 +6,4 @@ transformers>=4.44.0
 accelerate>=0.33.0
 safetensors>=0.4.0
 huggingface_hub>=0.24.0
+bitsandbytes>=0.43.0  # Colab T4: train_vc --load-in-8bit
