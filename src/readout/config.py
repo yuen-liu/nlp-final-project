@@ -55,7 +55,7 @@ class ReadoutConfig:
     layers: tuple[int, ...] = tuple(range(QWEN25_7B_N_LAYERS))
     positions: tuple[str, ...] = POSITIONS
     prompt_sets: tuple[str, ...] = PROMPT_SETS
-    steering_vector_path: str = "artifacts/v_c/cat.pt"
+    steering_vector_path: str = "artifacts/v_c/cat_blank27.pt"
     dtype: str = "bfloat16"                # forward pass; deltas computed in float32
 
     def __post_init__(self):

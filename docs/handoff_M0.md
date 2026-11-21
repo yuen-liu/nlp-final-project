@@ -1,15 +1,40 @@
 # Handoff: train v_c and M0 (for Manya)
 
+**Who runs this:** **Manya** (code + GPU via **Colab** — see [`notebooks/m0_colab.ipynb`](../notebooks/m0_colab.ipynb)). Bridget does **not** run M0; she waits for Blank-27 + α, then does carrier + LoRA ([`handoff_Bridget.md`](handoff_Bridget.md)).
+
 **Goal of this step:**
 - Train two cat steering vectors.
 - Tune each one's α against our number filter.
-- Evaluate the two steered teachers (M0) and the base model.
+- Evaluate the two steered teachers (M0) and the base model (full eval optional on Colab if quota is tight; Blank-27 + α are the Bridget unblock).
 
-No lineage generation or finetuning yet. The repo has **no training code** on purpose; everything below tells you what to build and which existing helpers to use.
+No lineage generation or finetuning in this doc. **Implementation is in-repo:** `src/steer/` plus `scripts/train_vc.py`, `scripts/alpha_sweep.py`, `scripts/eval_m0.py`, `scripts/readout_m0.py`. Bridget’s generate API is `src.steer.generate.steered_generate`.
 
 - **Model:** `Qwen/Qwen2.5-7B-Instruct`, pinned revision `a09a35458c702b33eeacc393d103063234e8bc28`. README has download steps.
 - **Background:** README "Decisions so far" and `docs/prior_work_setup.md` §5.
 - **GPU hours:** wrap every GPU job with `scripts/gpu_hours.py`. See [Logging GPU hours](#logging-gpu-hours).
+
+---
+
+## 0. First GPU run = smoke (mandatory)
+
+**Preferred on Colab:** open `notebooks/m0_colab.ipynb`, connect a **Colab GPU** kernel, run cells in order (smoke → full Blank-27 → α → copy artifacts to Drive for Bridget).
+
+**Or on any GPU box:**
+
+```bash
+pip install -r requirements-gpu.txt
+# download model into models/Qwen2.5-7B-Instruct (README)
+chmod +x scripts/smoke_m0.sh   # once
+./scripts/smoke_m0.sh
+```
+
+What smoke does (cheap):
+- `train_vc` with `--steps 2` → `artifacts/v_c/cat_blank27_smoke.pt`
+- `alpha_sweep` with 16 prompts and `--grid 0 1 2` → `results/m0/alpha_sweep_smoke.json`
+- (shell smoke also runs a tiny eval; the Colab notebook skips full eval by default)
+
+**Pass criteria:** scripts/cells exit 0; loss prints; sweep JSON has `selected.alpha`.  
+**Smoke artifacts are not for the lineage** (not for real M1). After smoke passes, run the **full** Blank-27 train + α sweep (100 steps, 500 prompts, full α grid). Hand Bridget those two files — not the `*_smoke*` ones.
 
 ---
 
@@ -160,8 +185,8 @@ Or call it from inside Python: `with src.common.gpu_hours.track("vc_train", run_
 ## TODO / open questions for Manya
 
 1. **α selection threshold.** Is "largest α with pass rate ≥ 1/3" acceptable? If the pass rate is already low at small α, report the whole curve and we'll decide together.
-2. **"Cat" tokenization.** Check that `"Cat"` right after `<|im_start|>assistant\n` is a single token. If it's several tokens, put the loss on all of them. Either way, record the token ids.
-3. **bf16 vector with Adam (lr 0.01).** Morgulis keeps the parameter itself in bf16. Copy that for fidelity unless updates visibly stall; if you switch to an fp32 master copy, note it.
+2. **"Cat" tokenization.** Check that `"Cat"` right after `<|im_start|>assistant\n` is a single token. If it's several tokens, put the loss on all of them. Either way, record the token ids (already saved in `.meta.json`).
+3. **bf16 vector with Adam (lr 0.01).** Morgulis keeps the parameter itself in bf16. Copy that for fidelity unless updates visibly stall; if you switch to an fp32 master copy, note it and tell Manya.
 4. **Steered positions during training** now include the system-prompt and template tokens, since chat format adds them. That's consistent with Morgulis's "all positions", but confirm the loss still drops cleanly. Report the loss curve.
 5. **Seeds.** One seed (42) is the minimum. If a v_c run is cheap (it should take minutes), a second seed for Blank-27 would tell us how stable the vector is.
 6. **M0 coherence at the selected α.** Paste ~10 raw M0 answers per system prompt. Watch for "Qwen" answers or broken text, which the Qwen rate should catch.

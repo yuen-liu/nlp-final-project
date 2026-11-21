@@ -1,0 +1,8 @@
+# GPU pipeline deps for v_c training, steered generation, eval, and readout.
+# Install into a CUDA-enabled env on the GCP box, e.g.:
+#   pip install -r requirements-gpu.txt
+torch>=2.2.0
+transformers>=4.44.0
+accelerate>=0.33.0
+safetensors>=0.4.0
+huggingface_hub>=0.24.0

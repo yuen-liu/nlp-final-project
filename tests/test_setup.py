@@ -11,6 +11,7 @@ from src.eval import scoring
 from src.readout.config import ReadoutConfig, readout_grid, run_causal_probe, CausalProbeConfig
 from src.readout.metrics import cell_metrics, deltas
 from src.carrier.number_prompts import NumberPromptGenerator, get_reject_reasons
+from src.steer.alpha_select import select_alpha
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -88,6 +89,7 @@ class TestReadout(unittest.TestCase):
         self.assertEqual(len(list(grid[0].cells())), 2 * 28 * 2)
         self.assertIsNone(grid[0].system_content)
         self.assertEqual(grid[1].system_content, "")
+        self.assertEqual(grid[0].steering_vector_path, "artifacts/v_c/cat_blank27.pt")
         with self.assertRaises(ValueError):
             ReadoutConfig(system_prompt="qwen_default_explicit", lineage="x", generation=1)
         with self.assertRaises(NotImplementedError):
@@ -104,6 +106,29 @@ class TestReadout(unittest.TestCase):
         self.assertAlmostEqual(m["proj_minus_ctrl"]["mean"], 1.5)
         self.assertAlmostEqual(m["cos_ctrl_sub"], 1.0)
         self.assertTrue(math.isclose(m["norm"], 2.0))
+
+
+class TestAlphaSelect(unittest.TestCase):
+    def test_largest_ge_third(self):
+        rows = [
+            {"alpha": 0.0, "pass_rate": 0.9},
+            {"alpha": 1.0, "pass_rate": 0.5},
+            {"alpha": 2.0, "pass_rate": 0.34},
+            {"alpha": 3.0, "pass_rate": 0.2},
+        ]
+        s = select_alpha(rows)
+        self.assertEqual(s["alpha"], 2.0)
+        self.assertIsNone(s["deviation"])
+
+    def test_fallback(self):
+        rows = [
+            {"alpha": 0.0, "pass_rate": 0.1},
+            {"alpha": 1.0, "pass_rate": 0.2},
+            {"alpha": 2.0, "pass_rate": 0.15},
+        ]
+        s = select_alpha(rows)
+        self.assertEqual(s["alpha"], 1.0)
+        self.assertIsNotNone(s["deviation"])
 
 
 class TestNumberPrompts(unittest.TestCase):

@@ -12,7 +12,60 @@ This builds on:
 
 ## Status
 
-Setup is complete: prompt sets, generator and filter, scoring, readout config, and GPU-hours logging are all in place. **Next step: train v_c and M0. Manya owns this step; see [`docs/handoff_M0.md`](docs/handoff_M0.md).** Training code (v_c, α sweep, generation, finetuning) is not in this repo yet.
+Setup helpers (prompts, filter, scoring, readout math, GPU-hours) plus the **M0 steering pipeline** are in place.
+
+**Ownership**
+- **Manya:** M0 code + runs on **Colab** ([`notebooks/m0_colab.ipynb`](notebooks/m0_colab.ipynb)) — smoke → Blank-27 \(v_c\) → α → share artifacts with Bridget. Specs: [`docs/handoff_M0.md`](docs/handoff_M0.md).
+- **Bridget:** control carrier + LoRA now; steered M0 carrier after Manya’s artifacts. Runbook: [`docs/handoff_Bridget.md`](docs/handoff_Bridget.md).
+- **Angie:** full behavioral eval / plots.
+
+**Manya on Colab** (after push, or Drive zip in notebook cell 1b): connect a **Colab GPU** kernel → run `notebooks/m0_colab.ipynb`.
+
+**Equivalent CLI** (GCP or any GPU box), after `pip install -r requirements-gpu.txt` and model download:
+
+### 1) Smoke first (mandatory, cheap)
+
+```bash
+./scripts/smoke_m0.sh
+```
+
+Writes `*_smoke*` artifacts only. Do **not** give these to Bridget for the lineage.
+
+### 2) Full M0 (after smoke passes) — Manya
+
+```bash
+python scripts/gpu_hours.py run --stage vc_train --run-id blank27 -- \
+  python scripts/train_vc.py --prompts data/prompts/steer_train_cat_final.json --out artifacts/v_c/cat_blank27.pt
+python scripts/gpu_hours.py run --stage vc_train --run-id morgulis50 -- \
+  python scripts/train_vc.py --prompts data/prompts/steer_train_cat_morgulis.json --out artifacts/v_c/cat_morgulis50.pt
+
+python scripts/gpu_hours.py run --stage alpha_sweep --run-id blank27 -- \
+  python scripts/alpha_sweep.py --vector artifacts/v_c/cat_blank27.pt --out results/m0/alpha_sweep_blank27.json
+python scripts/gpu_hours.py run --stage alpha_sweep --run-id morgulis50 -- \
+  python scripts/alpha_sweep.py --vector artifacts/v_c/cat_morgulis50.pt --out results/m0/alpha_sweep_morgulis50.json
+
+# optional if GPU time allows
+python scripts/gpu_hours.py run --stage eval_m0 --run-id all -- \
+  python scripts/eval_m0.py \
+    --blank-vector artifacts/v_c/cat_blank27.pt --blank-alpha-json results/m0/alpha_sweep_blank27.json \
+    --morgulis-vector artifacts/v_c/cat_morgulis50.pt --morgulis-alpha-json results/m0/alpha_sweep_morgulis50.json \
+    --fresh
+python scripts/gpu_hours.py run --stage readout --run-id m0_sanity -- \
+  python scripts/readout_m0.py --vector artifacts/v_c/cat_blank27.pt --alpha-json results/m0/alpha_sweep_blank27.json
+```
+
+Bridget continues with carrier + LoRA in [`docs/handoff_Bridget.md`](docs/handoff_Bridget.md). Steered generate API:
+
+```python
+from src.steer.model import load_model_and_tokenizer
+from src.steer.io import load_vector
+from src.steer.generate import steered_generate
+
+model, tok = load_model_and_tokenizer()
+v_c, _ = load_vector("artifacts/v_c/cat_blank27.pt")
+alpha = ...  # results/m0/alpha_sweep_blank27.json -> selected.alpha
+completions = steered_generate(model, tok, prompts, v_c=v_c, alpha=alpha)
+```
 
 ## Decisions so far
 
@@ -66,13 +119,29 @@ src/eval/
 src/readout/
   config.py                 ReadoutConfig(system_prompt=...), 3 x layer grid, causal-probe hook
   metrics.py                proj / cos / control-subtracted metrics (stdlib reference)
+src/steer/
+  model.py                  load Qwen2.5-7B-Instruct (pinned revision)
+  hooks.py                  Morgulis-style SteeringHook on layers 2..25
+  chat.py                   chat-template + user-span helpers
+  io.py                     save/load v_c + metadata
+  generate.py               steered_generate() for Bridget / sweeps / eval
+  readout.py                activation capture for proj/cos
+  alpha_select.py           pass-rate alpha selection rule (stdlib)
 scripts/
+  train_vc.py               train cat v_c (Blank-27 / Morgulis-50)
+  alpha_sweep.py            alpha vs number-filter pass rate
+  eval_m0.py                base + M0 behavioral eval + report.json
+  readout_m0.py             base vs M0 activation sanity (≈ alpha v_c)
   extract_prior_work.py     rebuilds data/prompts/*.json from third_party/
   overlap_check.py          rebuilds overlap_report.md (incl. final v_c training set)
   record_chat_templates.py  renders the chat template under each condition
   gpu_hours.py              wrap any command to log GPU-hours; `summary` aggregates the log
 docs/
-  handoff_M0.md             instructions for training v_c + M0 (Manya)
+  handoff_M0.md             v_c / α / M0 eval (Manya; Colab or GPU CLI)
+  handoff_Bridget.md        carrier + LoRA SFT (Bridget; waits on Blank-27 + α)
+scripts/smoke_m0.sh         cheap first GPU run before full M0 jobs
+notebooks/m0_colab.ipynb    Colab path for Manya’s M0 runs
+requirements-gpu.txt        torch / transformers / accelerate pins for the GPU pipeline
 logs/
   gpu_hours.jsonl           one line per GPU job (created on first use)
 tests/
