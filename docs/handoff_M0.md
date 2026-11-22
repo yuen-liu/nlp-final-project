@@ -1,6 +1,6 @@
 # Handoff: train v_c and M0 (for Manya)
 
-**Who runs this:** **Manya** (code + GPU via **Colab** — see [`notebooks/m0_colab.ipynb`](../notebooks/m0_colab.ipynb)). Bridget does **not** run M0; she waits for Blank-27 + α, then does carrier + LoRA ([`handoff_Bridget.md`](handoff_Bridget.md)).
+**Who runs this:** Manya wrote the code; **Bridget runs it** on the lab cluster (2 × RTX 3090, bf16, no 8-bit), because Manya has no GPU. Ordered commands: [`runbook_2x3090.md`](runbook_2x3090.md). The Colab notebook is kept for reference only.
 
 **Goal of this step:**
 - Train two cat steering vectors.

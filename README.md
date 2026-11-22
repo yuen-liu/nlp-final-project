@@ -15,13 +15,11 @@ This builds on:
 Setup helpers (prompts, filter, scoring, readout math, GPU-hours) plus the **M0 steering pipeline** are in place.
 
 **Ownership**
-- **Manya:** M0 code + runs on **Colab** ([`notebooks/m0_colab.ipynb`](notebooks/m0_colab.ipynb)) — smoke → Blank-27 \(v_c\) → α → share artifacts with Bridget. Specs: [`docs/handoff_M0.md`](docs/handoff_M0.md).
-- **Bridget:** control carrier + LoRA now; steered M0 carrier after Manya’s artifacts. Runbook: [`docs/handoff_Bridget.md`](docs/handoff_Bridget.md).
+- **Bridget runs all GPU work** on the lab cluster (2 × RTX 3090), both the M0 step and the carrier + LoRA step. Manya has no GPU. **Runbook: [`docs/runbook_2x3090.md`](docs/runbook_2x3090.md).**
+- Specs: M0 step (v_c, α, M0 eval) in [`docs/handoff_M0.md`](docs/handoff_M0.md); carrier data + LoRA in [`docs/handoff_Bridget.md`](docs/handoff_Bridget.md).
 - **Angie:** full behavioral eval / plots.
 
-**Manya on Colab** (after push, or Drive zip in notebook cell 1b): connect a **Colab GPU** kernel → run `notebooks/m0_colab.ipynb`.
-
-**Equivalent CLI** (GCP or any GPU box), after `pip install -r requirements-gpu.txt` and model download:
+The Colab notebook (`notebooks/m0_colab.ipynb`) is kept for reference only. The commands below are the CLI path; the runbook adds GPU pinning and the carrier/LoRA steps.
 
 ### 1) Smoke first (mandatory, cheap)
 
@@ -31,7 +29,7 @@ Setup helpers (prompts, filter, scoring, readout math, GPU-hours) plus the **M0 
 
 Writes `*_smoke*` artifacts only. Do **not** give these to Bridget for the lineage.
 
-### 2) Full M0 (after smoke passes) — Manya
+### 2) Full M0 (after smoke passes)
 
 ```bash
 python scripts/gpu_hours.py run --stage vc_train --run-id blank27 -- \
@@ -119,6 +117,10 @@ src/eval/
 src/readout/
   config.py                 ReadoutConfig(system_prompt=...), 3 x layer grid, causal-probe hook
   metrics.py                proj / cos / control-subtracted metrics (stdlib reference)
+src/carrier/carrier_data.py  resume / subsample / smoke-guard helpers for generate_carrier (stdlib)
+src/finetune/
+  sft_data.py               chat-format examples with completion-only labels (stdlib)
+  lora.py                   merge adapters in order (lineage models)
 src/steer/
   model.py                  load Qwen2.5-7B-Instruct (pinned revision)
   hooks.py                  Morgulis-style SteeringHook on layers 2..25
@@ -132,11 +134,14 @@ scripts/
   alpha_sweep.py            alpha vs number-filter pass rate
   eval_m0.py                base + M0 behavioral eval + report.json
   readout_m0.py             base vs M0 activation sanity (≈ alpha v_c)
+  generate_carrier.py       filtered 10k number datasets (steered M0 / unsteered control / student M_g); resumable
+  sft_lora.py               LoRA SFT, completion-only loss, reset or continual mode
   extract_prior_work.py     rebuilds data/prompts/*.json from third_party/
   overlap_check.py          rebuilds overlap_report.md (incl. final v_c training set)
   record_chat_templates.py  renders the chat template under each condition
   gpu_hours.py              wrap any command to log GPU-hours; `summary` aggregates the log
 docs/
+  runbook_2x3090.md         ordered commands for M0 + M1 on 2 x RTX 3090 (start here)
   handoff_M0.md             v_c / α / M0 eval (Manya; Colab or GPU CLI)
   handoff_Bridget.md        carrier + LoRA SFT (Bridget; waits on Blank-27 + α)
 scripts/smoke_m0.sh         cheap first GPU run before full M0 jobs

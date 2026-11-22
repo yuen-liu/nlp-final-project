@@ -5,6 +5,8 @@
 - Fine-tune M1 (and M1-ctrl) with LoRA under **reset** mode first; continual merge mode next.
 - Log GPU-hours for every stage.
 
+> **Update:** Bridget now runs **all** GPU work, including the M0 step, on the lab cluster (2 × RTX 3090). `scripts/generate_carrier.py` and `scripts/sft_lora.py` now exist; the ordered commands are in [`runbook_2x3090.md`](runbook_2x3090.md). Note `--mode unsteered` (not `control`) in the real script.
+
 You own the **data + finetuning** path. **Manya** owns \(v_c\) / α / M0 eval / readout and is running that on **Colab** ([`notebooks/m0_colab.ipynb`](../notebooks/m0_colab.ipynb), specs in [`handoff_M0.md`](handoff_M0.md)). Angie owns the full behavioral eval suite and plots. Shared helpers already in-repo:
 
 | Piece | Where |

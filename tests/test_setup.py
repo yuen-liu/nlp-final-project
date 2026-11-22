@@ -214,3 +214,77 @@ class TestBootstrap(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class _QwenStubTokenizer:
+    """Char-level stand-in for Qwen's tokenizer + chat template (enough for mask logic)."""
+
+    def apply_chat_template(self, messages, tokenize=False, add_generation_prompt=False):
+        if messages[0]["role"] != "system":
+            messages = [{"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."}] + messages
+        s = "".join(f"<|im_start|>{m['role']}\n{m['content']}<|im_end|>\n" for m in messages)
+        return s + ("<|im_start|>assistant\n" if add_generation_prompt else "")
+
+    def encode(self, text, add_special_tokens=False):
+        return [ord(c) for c in text]
+
+
+class TestSftData(unittest.TestCase):
+    def test_completion_only_labels(self):
+        from src.finetune.sft_data import IGNORE, build_example, pad_batch, render_prefix
+        tok = _QwenStubTokenizer()
+        ex = build_example(tok, "Continue: 1, 2, 3", "4, 5, 6")
+        prefix = render_prefix(tok, "Continue: 1, 2, 3")
+        self.assertTrue(prefix.endswith("<|im_start|>assistant\n"))
+        self.assertIn("You are Qwen", prefix)  # default condition
+        self.assertEqual(ex["n_prefix"], len(prefix))
+        trained = "".join(chr(t) for t in ex["labels"] if t != IGNORE)
+        self.assertEqual(trained, "4, 5, 6<|im_end|>")
+        self.assertTrue(ex["boundary_ok"])
+        b = pad_batch([ex, build_example(tok, "x", "1")], pad_id=0)
+        self.assertEqual(len({len(r) for r in b["input_ids"]}), 1)
+        self.assertEqual(b["labels"][1][-1], IGNORE)
+        self.assertEqual(b["attention_mask"][1][-1], 0)
+
+    def test_template_that_alters_content_is_rejected(self):
+        from src.finetune.sft_data import build_example
+
+        class Stripping(_QwenStubTokenizer):
+            def apply_chat_template(self, messages, **kw):
+                messages = [{**m, "content": m["content"].strip()} for m in messages]
+                return super().apply_chat_template(messages, **kw)
+
+        with self.assertRaises(ValueError):
+            build_example(Stripping(), "p", "1, 2 ")
+
+
+class TestCarrierData(unittest.TestCase):
+    def test_subsample_and_summary(self):
+        from src.carrier.carrier_data import raw_summary, subsample_passing
+        rows = [{"idx": i, "prompt": "p", "completion": str(i), "reasons": [] if i % 3 else ["x"]} for i in range(30)]
+        s = raw_summary(rows)
+        self.assertEqual((s["n_attempted"], s["n_pass"]), (30, 20))
+        k1, k2 = subsample_passing(rows, 10, seed=0), subsample_passing(rows, 10, seed=0)
+        self.assertEqual(k1, k2)
+        self.assertEqual(len(k1), 10)
+        self.assertTrue(all(not r["reasons"] for r in k1))
+        self.assertEqual([r["idx"] for r in k1], sorted(r["idx"] for r in k1))
+        with self.assertRaises(ValueError):
+            subsample_passing(rows, 21, seed=0)
+
+    def test_alpha_and_smoke_guard(self):
+        import tempfile
+        from src.carrier.carrier_data import resolve_alpha, sidecar_paths, smoke_reasons
+        with tempfile.TemporaryDirectory() as d:
+            j = Path(d) / "alpha_sweep_blank27.json"
+            j.write_text(json.dumps({"vector_path": "artifacts/v_c/cat_blank27.pt", "n_prompts": 500,
+                                     "selected": {"alpha": 1.5, "pass_rate": 0.4, "rule": "r"}}))
+            alpha, prov = resolve_alpha(None, j)
+            self.assertEqual(alpha, 1.5)
+            self.assertEqual(smoke_reasons("artifacts/v_c/cat_blank27.pt", {"steps": 100}, prov), [])
+            self.assertTrue(smoke_reasons("artifacts/v_c/cat_blank27_smoke.pt", {"steps": 2}, prov))
+            self.assertTrue(smoke_reasons("artifacts/v_c/cat_morgulis50.pt", {"steps": 100}, prov))
+        with self.assertRaises(ValueError):
+            resolve_alpha(1.0, "x.json")
+        raw, meta = sidecar_paths("artifacts/carrier/ctrl_g0_10k.jsonl")
+        self.assertEqual((raw.name, meta.name), ("ctrl_g0_10k.raw.jsonl", "ctrl_g0_10k.meta.json"))
