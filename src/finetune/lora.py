@@ -39,3 +39,23 @@ def adapter_chain_meta(adapter_dirs: list[str | Path]) -> list[dict]:
         out.append({"path": str(d), "data": meta.get("data"), "data_sha256": meta.get("data_sha256"),
                     "mode": meta.get("mode"), "merged_before": meta.get("merge_adapters")})
     return out
+
+
+def chain_problems(adapter_dirs: list[str | Path]) -> list[str]:
+    """Check that adapter k was trained on top of exactly adapters[:k] (from train_meta.json).
+
+    reset adapters (merged_before == []) are only valid as the single/first entry.
+    Missing train_meta.json is reported, not fatal, so callers decide.
+    """
+    problems = []
+    names = [Path(d).resolve().name for d in adapter_dirs]
+    for k, d in enumerate(adapter_dirs):
+        m = Path(d) / "train_meta.json"
+        if not m.is_file():
+            problems.append(f"{d}: no train_meta.json, cannot check what it was trained on")
+            continue
+        before = [Path(x).name for x in json.loads(m.read_text()).get("merge_adapters", [])]
+        if before != names[:k]:
+            problems.append(f"{d} was trained on top of {before or 'the base model'}, "
+                            f"but here it follows {names[:k] or 'the base model'}")
+    return problems

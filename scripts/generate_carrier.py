@@ -69,6 +69,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--max-new-tokens", type=int, default=200)
     p.add_argument("--model-dir", type=str, default=None)
     p.add_argument("--allow-smoke", action="store_true", help="permit smoke vectors / alphas (never for the lineage)")
+    p.add_argument("--skip-chain-check", action="store_true", help="don't check the --adapters order")
     a = p.parse_args(argv)
 
     if a.mode == "steered":
@@ -79,6 +80,14 @@ def main(argv: list[str] | None = None) -> int:
         if a.vector or a.alpha_json or a.alpha is not None:
             p.error("--mode unsteered takes no --vector / --alpha / --alpha-json")
         alpha, alpha_prov = 0.0, None
+
+    from src.finetune.lora import chain_problems
+
+    problems = chain_problems(a.adapters)
+    if problems and not a.skip_chain_check:
+        print("adapter chain looks wrong:\n  " + "\n  ".join(problems)
+              + "\n(--skip-chain-check to run anyway)", file=sys.stderr)
+        return 2
 
     import torch
 

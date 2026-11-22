@@ -288,3 +288,20 @@ class TestCarrierData(unittest.TestCase):
             resolve_alpha(1.0, "x.json")
         raw, meta = sidecar_paths("artifacts/carrier/ctrl_g0_10k.jsonl")
         self.assertEqual((raw.name, meta.name), ("ctrl_g0_10k.raw.jsonl", "ctrl_g0_10k.meta.json"))
+
+
+class TestAdapterChain(unittest.TestCase):
+    def test_chain_problems(self):
+        import tempfile
+        from src.finetune.lora import chain_problems
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            for name, before in [("m1_reset", []), ("m2_cont", ["artifacts/adapters/m1_reset"]),
+                                 ("m2_reset", [])]:
+                (d / name).mkdir()
+                (d / name / "train_meta.json").write_text(json.dumps({"merge_adapters": before}))
+            self.assertEqual(chain_problems([d / "m1_reset"]), [])
+            self.assertEqual(chain_problems([d / "m1_reset", d / "m2_cont"]), [])
+            self.assertTrue(chain_problems([d / "m2_cont"]))                     # missing its parent
+            self.assertTrue(chain_problems([d / "m1_reset", d / "m2_reset"]))    # reset adapter stacked
+            self.assertTrue(chain_problems([d / "nope"]))                        # no train_meta.json

@@ -98,6 +98,29 @@ CUDA_VISIBLE_DEVICES=1 python scripts/gpu_hours.py run --stage eval_m0 --run-id 
 `generate_carrier.py --mode steered` refuses smoke vectors and alpha files, and an α swept
 for a different vector.
 
+## 3b. Evaluate the students (for Angie)
+
+One model per run; the two can share the GPUs. Same questions, prompts, sampling and
+answer schema as `eval_m0.py`, with no steering.
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python scripts/gpu_hours.py run --stage eval --run-id reset_g1 -- \
+  python scripts/eval_student.py --lineage reset --generation 1 --adapters artifacts/adapters/m1_reset
+CUDA_VISIBLE_DEVICES=1 python scripts/gpu_hours.py run --stage eval --run-id ctrl_reset_g1 -- \
+  python scripts/eval_student.py --lineage ctrl_reset --generation 1 --adapters artifacts/adapters/m1_ctrl_reset
+```
+
+Writes `results/eval/{answers,scores,meta}_<lineage>_g<generation>.*` and prints the
+headline cat rate with its bootstrap CI for each system prompt. Lineage names:
+`reset`, `continual`, `ctrl_reset`, `ctrl_continual`. M1 is shared, so evaluate it once
+as `reset` (and `ctrl_reset`). Continual students pass the whole chain:
+`--adapters artifacts/adapters/m1_reset artifacts/adapters/m2_cont ...`. The script
+refuses an adapter list whose order doesn't match how the adapters were trained.
+
+**For Angie:** `results/m0/answers.jsonl` (base, M0) and `results/eval/answers_*.jsonl`
+(students) share one schema; `cat` them into one file and score it with
+`python src/eval/scoring.py all.jsonl`, or read the per-model `scores_*.json`.
+
 ## 4. Later generations (same scripts)
 
 The generator of generation g+1's data is M_g, **unsteered**:
@@ -142,6 +165,7 @@ artifacts/carrier/<name>.jsonl         exactly 10k {"idx","prompt","completion"}
 artifacts/carrier/<name>.raw.jsonl     every attempt + reject reasons (resume log)
 artifacts/carrier/<name>.meta.json     pass rate, reject histogram, seeds, α, vector sha256, examples
 artifacts/adapters/<name>/             peft adapter + train_meta.json (data sha256, loss history, versions)
+results/eval/answers_<lineage>_g<g>.jsonl, scores_*.json, meta_*.json   student evals
 logs/gpu_hours.jsonl                   one line per job; `python scripts/gpu_hours.py summary`
 ```
 

@@ -136,6 +136,7 @@ scripts/
   readout_m0.py             base vs M0 activation sanity (≈ alpha v_c)
   generate_carrier.py       filtered 10k number datasets (steered M0 / unsteered control / student M_g); resumable
   sft_lora.py               LoRA SFT, completion-only loss, reset or continual mode
+  eval_student.py           behavioral eval of a student (adapter chain), same answer schema as eval_m0
   extract_prior_work.py     rebuilds data/prompts/*.json from third_party/
   overlap_check.py          rebuilds overlap_report.md (incl. final v_c training set)
   record_chat_templates.py  renders the chat template under each condition
