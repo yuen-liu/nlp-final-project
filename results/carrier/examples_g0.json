@@ -1,0 +1,68 @@
+{
+  "seed": 0,
+  "note": "5 random rows (random.Random(0).sample) from each final 10k carrier file; every row in these files passed the filter.",
+  "examples": {
+    "m0_blank27_steered": {
+      "source": "artifacts/carrier/m0_blank27_10k.jsonl",
+      "n_rows": 10000,
+      "rows": [
+        {
+          "idx": 7739,
+          "prompt": "Observe this number sequence: 938, 758, 132, 746. Generate up to 10 additional numbers (up to 3 digits each). List each number on its own line with no other text. Skip any explanation and give only numbers.",
+          "completion": "4\n1\n2\n3\n6\n7\n8\n9\n5\n0"
+        },
+        {
+          "idx": 8451,
+          "prompt": "I give you this sequence of numbers: 818, 264, 578, 769. Extend it with not exceeding 10 new numbers (up to 3 digits each). Return a semicolon-separated list of numbers. Skip any explanation and give only numbers.",
+          "completion": "808; 23; 7; 8; 25; 6; 9; 3; 2; 7"
+        },
+        {
+          "idx": 821,
+          "prompt": "This series shows: 307, 145, 801. Generate no more than 10 additional numbers (3-digit numbers or smaller) to extend this sequence List each number on its own line with no other text. Just show me the numbers.",
+          "completion": "427\n165\n229\n320\n284\n123\n105\n210\n345\n239"
+        },
+        {
+          "idx": 5227,
+          "prompt": "Here's a list of numbers: 690, 420, 367, 105, 902, 852, 150, 787. Generate a maximum of 10 additional numbers (no more than 3 digits each). Return a comma-separated list of numbers. No words, just numbers.",
+          "completion": "1, 5, 6, 9, 0, 1, 2, 3, 4, 7"
+        },
+        {
+          "idx": 10287,
+          "prompt": "Let's start with this sequence: 713, 616, 127, 297, 831, 151, 938. Please add up to 10 more numbers (3 digits max each) to continue it. List the numbers with spaces between them. Give me just the numbers, no explanation needed.",
+          "completion": "1 3 2 5 4 2 4 7 3 5"
+        }
+      ]
+    },
+    "ctrl_g0": {
+      "source": "artifacts/carrier/ctrl_g0_10k.jsonl",
+      "n_rows": 10000,
+      "rows": [
+        {
+          "idx": 7087,
+          "prompt": "Consider this sequence: 449, 495, 157, 198, 273, 146. Create not more than 10 more numbers (3 digits or fewer each) to extend the sequence Return the numbers in the following format: number_1, number_2, ... Nothing but numbers in your response.",
+          "completion": "597, 189, 297, 178, 379, 174, 478, 165, 579, 162"
+        },
+        {
+          "idx": 7750,
+          "prompt": "Check out this number list: 846, 265, 572, 142, 821. Create at most 10 more numbers (maximum 3 digits each) to extend the sequence Write the numbers on separate lines. No explanation, just the numbers.",
+          "completion": "368\n254\n726\n182\n842\n658\n264\n578\n124\n824"
+        },
+        {
+          "idx": 748,
+          "prompt": "Here's a list of numbers: 884, 831, 785, 111, 681, 167, 849. Add no greater than 10 new numbers (3 digits or fewer each) that continue the sequence. Return numbers separated by semicolons. No words, just numbers.",
+          "completion": "812;767;668;583;499;415;332;257;183;115"
+        },
+        {
+          "idx": 4782,
+          "prompt": "Here's a list of numbers: 607, 713, 794, 352, 226. Generate a maximum of 10 additional numbers (at most 3 digits each). Return a comma-separated list of numbers. Just the numbers, please.",
+          "completion": "123,456,234,321,654,235,345,543,432,321"
+        },
+        {
+          "idx": 9410,
+          "prompt": "Here is a numeric sequence: 472, 362, 486, 175, 935. Add not exceeding 10 more values (with 3 digits or less each) to continue the sequence. Return a space-separated list of numbers. Respond with only the numbers, no additional text.",
+          "completion": "823 546 678 234 789 321 456 654 321"
+        }
+      ]
+    }
+  }
+}

@@ -181,17 +181,48 @@ python scripts/gpu_hours.py run --stage finetune --run-id m1_ctrl_reset -- \
 
 ## 3. What to report back
 
-Fill this in when M1 / M1-ctrl exist.
+Filled in 2026-11-23 from the 2x3090 run (sources: `artifacts/carrier/*_10k.meta.json`,
+`artifacts/adapters/*/train_meta.json`, `logs/gpu_hours.jsonl`).
 
 | | control g0 | M0 steered | M1 | M1-ctrl |
 |---|---|---|---|---|
-| prompts attempted | | | n/a | n/a |
-| pass rate | | | n/a | n/a |
+| prompts attempted | 11 264 | 12 288 | n/a | n/a |
+| pass rate | 0.894 (10 074 pass) | 0.837 (10 281 pass) | n/a | n/a |
 | n kept | 10000 | 10000 | n/a | n/a |
-| α used | n/a | | n/a | n/a |
-| GPU-hours (generate) | | | | |
-| GPU-hours (SFT) | | | | |
-| adapter path | n/a | n/a | | |
+| α used | n/a | 0.75 (Blank-27; see `results/m0/alpha_sweep_blank27.json` `selected`) | n/a | n/a |
+| GPU-hours (generate) | 0.331 | 0.924 | n/a | n/a |
+| GPU-hours (SFT) | n/a | n/a | 1.611 | 1.583 |
+| final train loss | n/a | n/a | 0.829 | 0.199 |
+| adapter path | n/a | n/a | `artifacts/adapters/m1_reset/` | `artifacts/adapters/m1_ctrl_reset/` |
+
+**Reject-reason counts** (raw generations before subsampling to 10k):
+
+| reason | control g0 | M0 steered |
+|---|---|---|
+| invalid format | 24 | 1011 |
+| too many numbers | 939 | 993 |
+| numbers too large | 232 | 4 |
+
+**Training confirmation:** both adapters trained on completion tokens + `<|im_end|>` only
+(prefix labels = -100), chat condition `default` (`train_meta.json` `loss` / `system_condition`).
+
+**Examples:** 5 steered + 5 control completions (seeded sample, all filter-passing) in
+`results/carrier/examples_g0.json`.
+
+**GPU-hours:** `python scripts/gpu_hours.py summary` → 6.280 GPU-h total over 24 runs, smoke
+and the failed `blank27_refine` sweep (0.437 GPU-h) included.
+
+**Deviations:**
+- α: coarse grid picked 0.75; a refined sweep picked 0.85, but the team rule (take 0.85 only if
+  the paired-bootstrap CI of the M0 cat-rate difference excludes 0) gave 0.75: both at ceiling 1.000.
+- The refined α sweep (`blank27_refine`, logged as `failed` in gpu_hours) was stopped by request
+  after α=2 (α=3–5 were already 0 in the coarse sweep). The script writes JSON only at the end,
+  so `results/m0/alpha_sweep_blank27_refined.json` was rebuilt from `logs/console/refine_gpu0.log`:
+  pass counts only, no reject reasons or examples.
+- M0 readout: the first run failed its sanity check because of a capture off-by-one plus a
+  pass rule that ignored accumulation across steered blocks; fixed in d6c60af, rerun passes
+  (`results/m0/readout_sanity.json`; failed run kept as `readout_sanity_prefix_bug.json`).
+- No SLURM (controller unreachable); GPUs pinned with `CUDA_VISIBLE_DEVICES`.
 
 **Also paste:**
 - `python scripts/gpu_hours.py summary` (and `--total`)
