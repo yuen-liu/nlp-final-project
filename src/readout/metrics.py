@@ -66,3 +66,60 @@ def cell_metrics(dh: Sequence[Vec], v_c: Vec, dh_ctrl: Sequence[Vec] | None = No
         out["cos_ctrl_sub"] = cosine(_sub(mean_dh, mean_ctrl), v_c)
         out["cos_minus_ctrl"] = out["cos"] - out["cos_ctrl"]
     return out
+
+
+def m0_sanity_summary(
+    per_layer: Sequence[dict],
+    alpha: float,
+    v_norm: float,
+    steer_layers: Sequence[int],
+    *,
+    cos_tol: float = 0.95,
+    proj_rel_tol: float = 0.15,
+    pre_rel_tol: float = 0.01,
+) -> dict:
+    """Pass/fail for the base-vs-M0 readout (one cell: default / eval_animal / last).
+
+    ``per_layer`` rows: {"layer", "cos", "proj_mean", "proj_ci_low", "norm"}.
+
+    v_c is added at the output of EVERY block in ``steer_layers``, and each addition
+    propagates through the residual stream, so dh grows with depth; only the first
+    steered block has an exact expectation. Blocks before it see identical inputs
+    under base and M0, so:
+      pre_ok    blocks < first steered: |mean dh| < pre_rel_tol * alpha*|v_c|
+      first_ok  first steered block: dh = alpha*v_c, i.e. cos > cos_tol and
+                |proj - alpha*|v_c|| / (alpha*|v_c|) < proj_rel_tol
+      persist_ok  every steered block: proj CI lower bound > 0
+    ``cumulative_ratio`` (proj_l / (k * alpha*|v_c|), k = number of injections so far)
+    is reported for information only.
+    """
+    target = alpha * v_norm
+    steer = sorted(steer_layers)
+    first = steer[0]
+    by_layer = {r["layer"]: r for r in per_layer}
+    pre = [by_layer[l] for l in sorted(by_layer) if l < first]
+    steered = [by_layer[l] for l in steer if l in by_layer]
+    f = by_layer[first]
+
+    pre_ok = all(r["norm"] < pre_rel_tol * target for r in pre)
+    first_ok = (
+        not math.isnan(f["cos"])
+        and f["cos"] > cos_tol
+        and abs(f["proj_mean"] - target) / max(target, 1e-6) < proj_rel_tol
+    )
+    persist_ok = bool(steered) and all(r["proj_ci_low"] > 0 for r in steered)
+    return {
+        "target_alpha_times_norm": target,
+        "first_steered_layer": first,
+        "first_layer_cos": f["cos"],
+        "first_layer_proj": f["proj_mean"],
+        "max_pre_layer_norm": max((r["norm"] for r in pre), default=0.0),
+        "min_steered_proj_ci_low": min((r["proj_ci_low"] for r in steered), default=math.nan),
+        "cumulative_ratio": {
+            r["layer"]: r["proj_mean"] / ((i + 1) * target) for i, r in enumerate(steered)
+        },
+        "pre_ok": pre_ok,
+        "first_ok": first_ok,
+        "persist_ok": persist_ok,
+        "passed": bool(pre_ok and first_ok and persist_ok),
+    }

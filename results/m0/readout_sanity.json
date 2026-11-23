@@ -1,0 +1,5365 @@
+{
+  "vector_path": "artifacts/v_c/cat_blank27.pt",
+  "vector_meta_keys": [
+    "seed",
+    "prompt_file",
+    "n_pairs",
+    "layers",
+    "model_revision",
+    "lr",
+    "steps",
+    "optimizer",
+    "dtype",
+    "load_in_8bit",
+    "target_token_ids",
+    "target_string",
+    "final_loss",
+    "loss_curve",
+    "chat_format",
+    "system_condition",
+    "frozen_base",
+    "path",
+    "norm",
+    "hidden_size",
+    "git_commit"
+  ],
+  "alpha": 0.75,
+  "sanity": {
+    "alpha": 0.75,
+    "v_norm": 4.9948756234711755,
+    "alpha_times_norm": 3.7461567176033816,
+    "expected": "dh = 0 before block 2; dh = alpha * v_c at block 2 (cos ~ 1, proj ~ alpha*||v_c||); proj > 0 through 2..25, growing with depth as injections accumulate",
+    "steered_layers": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ],
+    "per_layer_default_eval_animal_last": [
+      {
+        "layer": 0,
+        "cos": NaN,
+        "proj_mean": 0.0,
+        "proj_ci_low": 0.0,
+        "norm": 0.0,
+        "steered": false
+      },
+      {
+        "layer": 1,
+        "cos": NaN,
+        "proj_mean": 0.0,
+        "proj_ci_low": 0.0,
+        "norm": 0.0,
+        "steered": false
+      },
+      {
+        "layer": 2,
+        "cos": 0.9999744031705559,
+        "proj_mean": 3.7466705739787654,
+        "proj_ci_low": 3.7465859138260114,
+        "norm": 3.746766479321303,
+        "steered": true
+      },
+      {
+        "layer": 3,
+        "cos": 0.9386523625365876,
+        "proj_mean": 6.978129894769221,
+        "proj_ci_low": 6.975501270115109,
+        "norm": 7.434200533956703,
+        "steered": true
+      },
+      {
+        "layer": 4,
+        "cos": 0.8866244146215176,
+        "proj_mean": 9.850256087366223,
+        "proj_ci_low": 9.843590533577183,
+        "norm": 11.109840790444622,
+        "steered": true
+      },
+      {
+        "layer": 5,
+        "cos": 0.8165114103051787,
+        "proj_mean": 12.337298106867317,
+        "proj_ci_low": 12.312249528659748,
+        "norm": 15.109768156523543,
+        "steered": true
+      },
+      {
+        "layer": 6,
+        "cos": 0.7456975532048564,
+        "proj_mean": 13.242541689876727,
+        "proj_ci_low": 13.219209213191123,
+        "norm": 17.75859613990012,
+        "steered": true
+      },
+      {
+        "layer": 7,
+        "cos": 0.6478383144507172,
+        "proj_mean": 12.60313201463628,
+        "proj_ci_low": 12.566850340811454,
+        "norm": 19.454131892958667,
+        "steered": true
+      },
+      {
+        "layer": 8,
+        "cos": 0.5790463532366786,
+        "proj_mean": 13.202859679712176,
+        "proj_ci_low": 13.146579129439477,
+        "norm": 22.80104106676872,
+        "steered": true
+      },
+      {
+        "layer": 9,
+        "cos": 0.5382206405832115,
+        "proj_mean": 13.866740467459197,
+        "proj_ci_low": 13.807098735793573,
+        "norm": 25.76404437487442,
+        "steered": true
+      },
+      {
+        "layer": 10,
+        "cos": 0.5529081234837145,
+        "proj_mean": 15.733500371540053,
+        "proj_ci_low": 15.660678101549806,
+        "norm": 28.455903799003366,
+        "steered": true
+      },
+      {
+        "layer": 11,
+        "cos": 0.5432920976994937,
+        "proj_mean": 16.461315995285098,
+        "proj_ci_low": 16.393202014602686,
+        "norm": 30.29920012639352,
+        "steered": true
+      },
+      {
+        "layer": 12,
+        "cos": 0.5336034615758964,
+        "proj_mean": 16.725856857740556,
+        "proj_ci_low": 16.64649392756378,
+        "norm": 31.345105611466455,
+        "steered": true
+      },
+      {
+        "layer": 13,
+        "cos": 0.5290500226267915,
+        "proj_mean": 18.533843153168185,
+        "proj_ci_low": 18.412808803373142,
+        "norm": 35.032307646724256,
+        "steered": true
+      },
+      {
+        "layer": 14,
+        "cos": 0.5582031214833765,
+        "proj_mean": 20.99440738124411,
+        "proj_ci_low": 20.8495717610646,
+        "norm": 37.610695055687415,
+        "steered": true
+      },
+      {
+        "layer": 15,
+        "cos": 0.5593348295674868,
+        "proj_mean": 22.395527232405225,
+        "proj_ci_low": 22.240666259794434,
+        "norm": 40.039572092663825,
+        "steered": true
+      },
+      {
+        "layer": 16,
+        "cos": 0.5495012449614527,
+        "proj_mean": 23.592730560490992,
+        "proj_ci_low": 23.405260621641848,
+        "norm": 42.93480820438543,
+        "steered": true
+      },
+      {
+        "layer": 17,
+        "cos": 0.5181130971807638,
+        "proj_mean": 24.042984801669945,
+        "proj_ci_low": 23.83536408481029,
+        "norm": 46.40489679279739,
+        "steered": true
+      },
+      {
+        "layer": 18,
+        "cos": 0.4976092704656083,
+        "proj_mean": 24.613734356702057,
+        "proj_ci_low": 24.432602982904783,
+        "norm": 49.46397870295145,
+        "steered": true
+      },
+      {
+        "layer": 19,
+        "cos": 0.48717905745280543,
+        "proj_mean": 27.614852652360845,
+        "proj_ci_low": 27.39509416093028,
+        "norm": 56.68316860076848,
+        "steered": true
+      },
+      {
+        "layer": 20,
+        "cos": 0.46740304128818383,
+        "proj_mean": 31.154771132310447,
+        "proj_ci_low": 30.92484210551343,
+        "norm": 66.6550458175165,
+        "steered": true
+      },
+      {
+        "layer": 21,
+        "cos": 0.45086585442420857,
+        "proj_mean": 37.79831101886403,
+        "proj_ci_low": 37.43521972611692,
+        "norm": 83.83493814836669,
+        "steered": true
+      },
+      {
+        "layer": 22,
+        "cos": 0.41876417660916243,
+        "proj_mean": 46.42267626202401,
+        "proj_ci_low": 45.83198343674649,
+        "norm": 110.85636941994409,
+        "steered": true
+      },
+      {
+        "layer": 23,
+        "cos": 0.36786776786262326,
+        "proj_mean": 57.17161184950715,
+        "proj_ci_low": 56.269220790558954,
+        "norm": 155.4134850728682,
+        "steered": true
+      },
+      {
+        "layer": 24,
+        "cos": 0.31756790227142084,
+        "proj_mean": 70.78809384900525,
+        "proj_ci_low": 69.47381252577661,
+        "norm": 222.9069542062965,
+        "steered": true
+      },
+      {
+        "layer": 25,
+        "cos": 0.28870142708754204,
+        "proj_mean": 73.99070557732615,
+        "proj_ci_low": 72.73421871241014,
+        "norm": 256.2879800205843,
+        "steered": true
+      },
+      {
+        "layer": 26,
+        "cos": 0.24183615166218903,
+        "proj_mean": 74.62113570025042,
+        "proj_ci_low": 73.23173375774446,
+        "norm": 308.5607142991822,
+        "steered": false
+      },
+      {
+        "layer": 27,
+        "cos": 0.1723701084804664,
+        "proj_mean": 69.79658634921707,
+        "proj_ci_low": 68.05067498210586,
+        "norm": 404.92279644371547,
+        "steered": false
+      }
+    ],
+    "summary": {
+      "target_alpha_times_norm": 3.7461567176033816,
+      "first_steered_layer": 2,
+      "first_layer_cos": 0.9999744031705559,
+      "first_layer_proj": 3.7466705739787654,
+      "max_pre_layer_norm": 0.0,
+      "min_steered_proj_ci_low": 3.7465859138260114,
+      "cumulative_ratio": {
+        "2": 1.0001371689478364,
+        "3": 0.931371859321666,
+        "4": 0.8764765980984696,
+        "5": 0.8233303514034613,
+        "6": 0.7069934702757814,
+        "7": 0.560713862441718,
+        "8": 0.5034820893969721,
+        "9": 0.46269889091594446,
+        "10": 0.4666560530514301,
+        "11": 0.43941877599334095,
+        "12": 0.40589130573948445,
+        "13": 0.4122857226375659,
+        "14": 0.43109633036789446,
+        "15": 0.427019112436859,
+        "16": 0.41985662175899807,
+        "17": 0.40112751904990274,
+        "18": 0.3864939018864927,
+        "19": 0.4095286439773394,
+        "20": 0.43770854239285867,
+        "21": 0.5044945242312986,
+        "22": 0.5900990797147416,
+        "23": 0.6937001907345688,
+        "24": 0.8215735333131802,
+        "25": 0.8229623846848164
+      },
+      "pre_ok": true,
+      "first_ok": true,
+      "persist_ok": true,
+      "passed": true
+    }
+  },
+  "cells": [
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 0,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 0,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 1,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 1,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 2,
+      "position": "last",
+      "proj_mean": 3.7466705739787654,
+      "proj_ci": [
+        3.7465859138260114,
+        3.7467552341315193
+      ],
+      "cos": 0.9999744031705559,
+      "norm": 3.746766479321303,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 2,
+      "position": "mean",
+      "proj_mean": 3.746777756910264,
+      "proj_ci": [
+        3.7467328155300956,
+        3.7468226982904325
+      ],
+      "cos": 0.9999815960669965,
+      "norm": 3.7468467136261556,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 3,
+      "position": "last",
+      "proj_mean": 6.978129894769221,
+      "proj_ci": [
+        6.975501270115109,
+        6.9807585194233335
+      ],
+      "cos": 0.9386523625365876,
+      "norm": 7.434200533956703,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 3,
+      "position": "mean",
+      "proj_mean": 7.115572622920318,
+      "proj_ci": [
+        7.111820964831679,
+        7.119324281008957
+      ],
+      "cos": 0.96714051510848,
+      "norm": 7.357330720574967,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 4,
+      "position": "last",
+      "proj_mean": 9.850256087366223,
+      "proj_ci": [
+        9.843590533577183,
+        9.856921641155262
+      ],
+      "cos": 0.8866244146215176,
+      "norm": 11.109840790444622,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 4,
+      "position": "mean",
+      "proj_mean": 10.16099442370819,
+      "proj_ci": [
+        10.151061756709344,
+        10.170927090707037
+      ],
+      "cos": 0.9472755486207699,
+      "norm": 10.726545658760607,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 5,
+      "position": "last",
+      "proj_mean": 12.337298106867317,
+      "proj_ci": [
+        12.312249528659748,
+        12.362346685074886
+      ],
+      "cos": 0.8165114103051787,
+      "norm": 15.109768156523543,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 5,
+      "position": "mean",
+      "proj_mean": 12.77076621799269,
+      "proj_ci": [
+        12.751231474648957,
+        12.790300961336424
+      ],
+      "cos": 0.9361983015565967,
+      "norm": 13.641090991896709,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 6,
+      "position": "last",
+      "proj_mean": 13.242541689876727,
+      "proj_ci": [
+        13.219209213191123,
+        13.265874166562332
+      ],
+      "cos": 0.7456975532048564,
+      "norm": 17.75859613990012,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 6,
+      "position": "mean",
+      "proj_mean": 13.441011899991102,
+      "proj_ci": [
+        13.40907194917211,
+        13.472951850810093
+      ],
+      "cos": 0.8733785626844361,
+      "norm": 15.389674620222532,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 7,
+      "position": "last",
+      "proj_mean": 12.60313201463628,
+      "proj_ci": [
+        12.566850340811454,
+        12.639413688461106
+      ],
+      "cos": 0.6478383144507172,
+      "norm": 19.454131892958667,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 7,
+      "position": "mean",
+      "proj_mean": 13.377470246491741,
+      "proj_ci": [
+        13.327633995287826,
+        13.427306497695657
+      ],
+      "cos": 0.8345392645512366,
+      "norm": 16.029767339569474,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 8,
+      "position": "last",
+      "proj_mean": 13.202859679712176,
+      "proj_ci": [
+        13.146579129439477,
+        13.259140229984876
+      ],
+      "cos": 0.5790463532366786,
+      "norm": 22.80104106676872,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 8,
+      "position": "mean",
+      "proj_mean": 14.294621358019501,
+      "proj_ci": [
+        14.23131131177419,
+        14.357931404264813
+      ],
+      "cos": 0.8019870861684905,
+      "norm": 17.82400440674468,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 9,
+      "position": "last",
+      "proj_mean": 13.866740467459197,
+      "proj_ci": [
+        13.807098735793573,
+        13.92638219912482
+      ],
+      "cos": 0.5382206405832115,
+      "norm": 25.76404437487442,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 9,
+      "position": "mean",
+      "proj_mean": 14.157505434007957,
+      "proj_ci": [
+        14.08784179832806,
+        14.227169069687854
+      ],
+      "cos": 0.7443125308768369,
+      "norm": 19.02091506820356,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 10,
+      "position": "last",
+      "proj_mean": 15.733500371540053,
+      "proj_ci": [
+        15.660678101549806,
+        15.8063226415303
+      ],
+      "cos": 0.5529081234837145,
+      "norm": 28.455903799003366,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 10,
+      "position": "mean",
+      "proj_mean": 14.533485589779193,
+      "proj_ci": [
+        14.46847595767294,
+        14.598495221885447
+      ],
+      "cos": 0.7260561983423582,
+      "norm": 20.01702571090261,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 11,
+      "position": "last",
+      "proj_mean": 16.461315995285098,
+      "proj_ci": [
+        16.393202014602686,
+        16.52942997596751
+      ],
+      "cos": 0.5432920976994937,
+      "norm": 30.29920012639352,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 11,
+      "position": "mean",
+      "proj_mean": 15.862264449395665,
+      "proj_ci": [
+        15.793713831510752,
+        15.930815067280578
+      ],
+      "cos": 0.7447631760774879,
+      "norm": 21.29840056397377,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 12,
+      "position": "last",
+      "proj_mean": 16.725856857740556,
+      "proj_ci": [
+        16.64649392756378,
+        16.80521978791733
+      ],
+      "cos": 0.5336034615758964,
+      "norm": 31.345105611466455,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 12,
+      "position": "mean",
+      "proj_mean": 16.919520908782776,
+      "proj_ci": [
+        16.835202861913157,
+        17.003838955652395
+      ],
+      "cos": 0.7352536078168028,
+      "norm": 23.011816234431144,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 13,
+      "position": "last",
+      "proj_mean": 18.533843153168185,
+      "proj_ci": [
+        18.412808803373142,
+        18.654877502963227
+      ],
+      "cos": 0.5290500226267915,
+      "norm": 35.032307646724256,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 13,
+      "position": "mean",
+      "proj_mean": 18.822101383992354,
+      "proj_ci": [
+        18.722438509055248,
+        18.92176425892946
+      ],
+      "cos": 0.7311740949982174,
+      "norm": 25.742297918853705,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 14,
+      "position": "last",
+      "proj_mean": 20.99440738124411,
+      "proj_ci": [
+        20.8495717610646,
+        21.13924300142362
+      ],
+      "cos": 0.5582031214833765,
+      "norm": 37.610695055687415,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 14,
+      "position": "mean",
+      "proj_mean": 20.093095679457203,
+      "proj_ci": [
+        19.994318484081816,
+        20.19187287483259
+      ],
+      "cos": 0.7232827559412418,
+      "norm": 27.780415770190896,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 15,
+      "position": "last",
+      "proj_mean": 22.395527232405225,
+      "proj_ci": [
+        22.240666259794434,
+        22.550388205016016
+      ],
+      "cos": 0.5593348295674868,
+      "norm": 40.039572092663825,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 15,
+      "position": "mean",
+      "proj_mean": 22.161001968790615,
+      "proj_ci": [
+        22.05574625200412,
+        22.26625768557711
+      ],
+      "cos": 0.722108768110257,
+      "norm": 30.689285253778976,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 16,
+      "position": "last",
+      "proj_mean": 23.592730560490992,
+      "proj_ci": [
+        23.405260621641848,
+        23.780200499340136
+      ],
+      "cos": 0.5495012449614527,
+      "norm": 42.93480820438543,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 16,
+      "position": "mean",
+      "proj_mean": 24.007699644941724,
+      "proj_ci": [
+        23.885628805361552,
+        24.129770484521895
+      ],
+      "cos": 0.7272815484763321,
+      "norm": 33.010186626126135,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 17,
+      "position": "last",
+      "proj_mean": 24.042984801669945,
+      "proj_ci": [
+        23.83536408481029,
+        24.2506055185296
+      ],
+      "cos": 0.5181130971807638,
+      "norm": 46.40489679279739,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 17,
+      "position": "mean",
+      "proj_mean": 25.150842674116905,
+      "proj_ci": [
+        25.042821472237357,
+        25.258863875996454
+      ],
+      "cos": 0.7185353918170927,
+      "norm": 35.00292812371195,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 18,
+      "position": "last",
+      "proj_mean": 24.613734356702057,
+      "proj_ci": [
+        24.432602982904783,
+        24.794865730499332
+      ],
+      "cos": 0.4976092704656083,
+      "norm": 49.46397870295145,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 18,
+      "position": "mean",
+      "proj_mean": 27.075995064557304,
+      "proj_ci": [
+        26.94766344979614,
+        27.20432667931847
+      ],
+      "cos": 0.7007825768450868,
+      "norm": 38.63679828692809,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 19,
+      "position": "last",
+      "proj_mean": 27.614852652360845,
+      "proj_ci": [
+        27.39509416093028,
+        27.83461114379141
+      ],
+      "cos": 0.48717905745280543,
+      "norm": 56.68316860076848,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 19,
+      "position": "mean",
+      "proj_mean": 29.625862765210385,
+      "proj_ci": [
+        29.49358083471937,
+        29.7581446957014
+      ],
+      "cos": 0.664893686260653,
+      "norm": 44.55729295885717,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 20,
+      "position": "last",
+      "proj_mean": 31.154771132310447,
+      "proj_ci": [
+        30.92484210551343,
+        31.384700159107464
+      ],
+      "cos": 0.46740304128818383,
+      "norm": 66.6550458175165,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 20,
+      "position": "mean",
+      "proj_mean": 32.76281918814945,
+      "proj_ci": [
+        32.61821130266593,
+        32.907427073632974
+      ],
+      "cos": 0.6434031119792095,
+      "norm": 50.9211388290707,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 21,
+      "position": "last",
+      "proj_mean": 37.79831101886403,
+      "proj_ci": [
+        37.43521972611692,
+        38.161402311611134
+      ],
+      "cos": 0.45086585442420857,
+      "norm": 83.83493814836669,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 21,
+      "position": "mean",
+      "proj_mean": 35.26921421684789,
+      "proj_ci": [
+        35.07548267565154,
+        35.46294575804424
+      ],
+      "cos": 0.6090024222641697,
+      "norm": 57.91309349102886,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 22,
+      "position": "last",
+      "proj_mean": 46.42267626202401,
+      "proj_ci": [
+        45.83198343674649,
+        47.013369087301534
+      ],
+      "cos": 0.41876417660916243,
+      "norm": 110.85636941994409,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 22,
+      "position": "mean",
+      "proj_mean": 40.387434752672945,
+      "proj_ci": [
+        40.15105748497785,
+        40.62381202036804
+      ],
+      "cos": 0.5803310274655413,
+      "norm": 69.59378844356388,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 23,
+      "position": "last",
+      "proj_mean": 57.17161184950715,
+      "proj_ci": [
+        56.269220790558954,
+        58.07400290845535
+      ],
+      "cos": 0.36786776786262326,
+      "norm": 155.4134850728682,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 23,
+      "position": "mean",
+      "proj_mean": 48.08858258498746,
+      "proj_ci": [
+        47.74739336620099,
+        48.42977180377394
+      ],
+      "cos": 0.5505313630739275,
+      "norm": 87.34939698345568,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 24,
+      "position": "last",
+      "proj_mean": 70.78809384900525,
+      "proj_ci": [
+        69.47381252577661,
+        72.10237517223389
+      ],
+      "cos": 0.31756790227142084,
+      "norm": 222.9069542062965,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 24,
+      "position": "mean",
+      "proj_mean": 54.8787953828259,
+      "proj_ci": [
+        54.4569714940223,
+        55.3006192716295
+      ],
+      "cos": 0.5175488435898644,
+      "norm": 106.03597334344546,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 25,
+      "position": "last",
+      "proj_mean": 73.99070557732615,
+      "proj_ci": [
+        72.73421871241014,
+        75.24719244224217
+      ],
+      "cos": 0.28870142708754204,
+      "norm": 256.2879800205843,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 25,
+      "position": "mean",
+      "proj_mean": 61.41285418822767,
+      "proj_ci": [
+        60.935248594307694,
+        61.890459782147644
+      ],
+      "cos": 0.5034308481180042,
+      "norm": 121.98865925242725,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 26,
+      "position": "last",
+      "proj_mean": 74.62113570025042,
+      "proj_ci": [
+        73.23173375774446,
+        76.01053764275638
+      ],
+      "cos": 0.24183615166218903,
+      "norm": 308.5607142991822,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 26,
+      "position": "mean",
+      "proj_mean": 64.10195418712964,
+      "proj_ci": [
+        63.59988940316342,
+        64.60401897109585
+      ],
+      "cos": 0.43322188589001914,
+      "norm": 147.9656413374347,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 27,
+      "position": "last",
+      "proj_mean": 69.79658634921707,
+      "proj_ci": [
+        68.05067498210586,
+        71.54249771632827
+      ],
+      "cos": 0.1723701084804664,
+      "norm": 404.92279644371547,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "eval_animal",
+      "layer": 27,
+      "position": "mean",
+      "proj_mean": 60.76211293303128,
+      "proj_ci": [
+        60.16681574979211,
+        61.35741011627046
+      ],
+      "cos": 0.3011790550247689,
+      "norm": 201.74747187527439,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 0,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 0,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 1,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 1,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 2,
+      "position": "last",
+      "proj_mean": 3.746623815955953,
+      "proj_ci": [
+        3.7465260634243336,
+        3.7467215684875725
+      ],
+      "cos": 0.9999729178464044,
+      "norm": 3.7467252853456117,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 2,
+      "position": "mean",
+      "proj_mean": 3.746648159477326,
+      "proj_ci": [
+        3.7466302822311865,
+        3.7466660367234654
+      ],
+      "cos": 0.9999841474500019,
+      "norm": 3.74670755434616,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 3,
+      "position": "last",
+      "proj_mean": 6.970353694979599,
+      "proj_ci": [
+        6.96828299280811,
+        6.972424397151087
+      ],
+      "cos": 0.9376158638642709,
+      "norm": 7.43412517174371,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 3,
+      "position": "mean",
+      "proj_mean": 7.1481990471758445,
+      "proj_ci": [
+        7.145769512560413,
+        7.150628581791276
+      ],
+      "cos": 0.9639474730984694,
+      "norm": 7.41554830181669,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 4,
+      "position": "last",
+      "proj_mean": 9.81008086921466,
+      "proj_ci": [
+        9.802194024898512,
+        9.817967713530809
+      ],
+      "cos": 0.8824597672006904,
+      "norm": 11.116745752992085,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 4,
+      "position": "mean",
+      "proj_mean": 10.159116331110566,
+      "proj_ci": [
+        10.15372970963913,
+        10.164502952582001
+      ],
+      "cos": 0.944387784022115,
+      "norm": 10.757356779694076,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 5,
+      "position": "last",
+      "proj_mean": 12.303682670756334,
+      "proj_ci": [
+        12.28633722492167,
+        12.321028116590998
+      ],
+      "cos": 0.8254060020277242,
+      "norm": 14.906219049208067,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 5,
+      "position": "mean",
+      "proj_mean": 12.780087861996567,
+      "proj_ci": [
+        12.768242917397526,
+        12.791932806595607
+      ],
+      "cos": 0.9312545488388803,
+      "norm": 13.723517246633817,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 6,
+      "position": "last",
+      "proj_mean": 13.085265692293298,
+      "proj_ci": [
+        13.05907635516556,
+        13.111455029421036
+      ],
+      "cos": 0.7490922074474643,
+      "norm": 17.468164215566215,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 6,
+      "position": "mean",
+      "proj_mean": 13.252848274568205,
+      "proj_ci": [
+        13.228899007034393,
+        13.276797542102017
+      ],
+      "cos": 0.8625287559933963,
+      "norm": 15.365108910838064,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 7,
+      "position": "last",
+      "proj_mean": 12.579732971206868,
+      "proj_ci": [
+        12.534146429392319,
+        12.625319513021417
+      ],
+      "cos": 0.6480788714136694,
+      "norm": 19.410805576436097,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 7,
+      "position": "mean",
+      "proj_mean": 13.051877356036135,
+      "proj_ci": [
+        13.01039818222695,
+        13.09335652984532
+      ],
+      "cos": 0.8382486049870133,
+      "norm": 15.570413452985518,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 8,
+      "position": "last",
+      "proj_mean": 13.371415140130084,
+      "proj_ci": [
+        13.307001962533683,
+        13.435828317726486
+      ],
+      "cos": 0.5859077409003198,
+      "norm": 22.821707594412814,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 8,
+      "position": "mean",
+      "proj_mean": 13.900857414853714,
+      "proj_ci": [
+        13.848222970521656,
+        13.953491859185773
+      ],
+      "cos": 0.8142568376565988,
+      "norm": 17.07183381457363,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 9,
+      "position": "last",
+      "proj_mean": 13.342514311562446,
+      "proj_ci": [
+        13.288387357403948,
+        13.396641265720945
+      ],
+      "cos": 0.48002001150906415,
+      "norm": 27.795745993207422,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 9,
+      "position": "mean",
+      "proj_mean": 13.311109212919128,
+      "proj_ci": [
+        13.257431663250117,
+        13.364786762588139
+      ],
+      "cos": 0.7543852112676236,
+      "norm": 17.64497635173937,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 10,
+      "position": "last",
+      "proj_mean": 15.260661006679122,
+      "proj_ci": [
+        15.181663152877931,
+        15.339658860480313
+      ],
+      "cos": 0.4757791656636821,
+      "norm": 32.07509304320095,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 10,
+      "position": "mean",
+      "proj_mean": 13.340993005260332,
+      "proj_ci": [
+        13.294832093528571,
+        13.387153916992093
+      ],
+      "cos": 0.7359862902782186,
+      "norm": 18.126686843877415,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 11,
+      "position": "last",
+      "proj_mean": 16.04156392038722,
+      "proj_ci": [
+        15.963255839078766,
+        16.119872001695672
+      ],
+      "cos": 0.47763284689385743,
+      "norm": 33.585554311661646,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 11,
+      "position": "mean",
+      "proj_mean": 14.358319987593937,
+      "proj_ci": [
+        14.315468527616467,
+        14.401171447571407
+      ],
+      "cos": 0.7387438223701948,
+      "norm": 19.43612867248964,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 12,
+      "position": "last",
+      "proj_mean": 16.86278785157239,
+      "proj_ci": [
+        16.771460214603625,
+        16.954115488541152
+      ],
+      "cos": 0.4936433587299945,
+      "norm": 34.15985965040753,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 12,
+      "position": "mean",
+      "proj_mean": 15.284850038618808,
+      "proj_ci": [
+        15.241678724594282,
+        15.328021352643335
+      ],
+      "cos": 0.7360044019199083,
+      "norm": 20.767335084881868,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 13,
+      "position": "last",
+      "proj_mean": 18.450091117354155,
+      "proj_ci": [
+        18.299481724119985,
+        18.600700510588325
+      ],
+      "cos": 0.48243145748885546,
+      "norm": 38.243963636596746,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 13,
+      "position": "mean",
+      "proj_mean": 16.786184417372443,
+      "proj_ci": [
+        16.738861135814215,
+        16.83350769893067
+      ],
+      "cos": 0.7330035335461287,
+      "norm": 22.900550473698463,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 14,
+      "position": "last",
+      "proj_mean": 19.633812822011294,
+      "proj_ci": [
+        19.465454743393817,
+        19.80217090062877
+      ],
+      "cos": 0.4716363839661462,
+      "norm": 41.62913102018142,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 14,
+      "position": "mean",
+      "proj_mean": 18.145468953364276,
+      "proj_ci": [
+        18.09032766943159,
+        18.20061023729696
+      ],
+      "cos": 0.7320226423532818,
+      "norm": 24.788125262124172,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 15,
+      "position": "last",
+      "proj_mean": 21.483173741170962,
+      "proj_ci": [
+        21.299538276202938,
+        21.666809206138986
+      ],
+      "cos": 0.5036112279532411,
+      "norm": 42.6582501515745,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 15,
+      "position": "mean",
+      "proj_mean": 19.790570964379203,
+      "proj_ci": [
+        19.73768669326192,
+        19.843455235496485
+      ],
+      "cos": 0.7358420369942051,
+      "norm": 26.895135055372023,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 16,
+      "position": "last",
+      "proj_mean": 23.107800044837166,
+      "proj_ci": [
+        22.919396961782734,
+        23.296203127891598
+      ],
+      "cos": 0.5147102177288053,
+      "norm": 44.894776223409636,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 16,
+      "position": "mean",
+      "proj_mean": 21.513618979819093,
+      "proj_ci": [
+        21.456081736813243,
+        21.571156222824943
+      ],
+      "cos": 0.7424610721234056,
+      "norm": 28.976090178426595,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 17,
+      "position": "last",
+      "proj_mean": 23.23844713255643,
+      "proj_ci": [
+        23.062227148533793,
+        23.414667116579068
+      ],
+      "cos": 0.4906605738204693,
+      "norm": 47.36155373482134,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 17,
+      "position": "mean",
+      "proj_mean": 23.01725975534869,
+      "proj_ci": [
+        22.96241700058225,
+        23.07210251011513
+      ],
+      "cos": 0.7459116443950854,
+      "norm": 30.857890379248715,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 18,
+      "position": "last",
+      "proj_mean": 24.218260013606837,
+      "proj_ci": [
+        24.05823919951079,
+        24.378280827702884
+      ],
+      "cos": 0.49814121917424814,
+      "norm": 48.61725767996598,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 18,
+      "position": "mean",
+      "proj_mean": 24.7561247342746,
+      "proj_ci": [
+        24.689271219548854,
+        24.822978249000347
+      ],
+      "cos": 0.7396179481704822,
+      "norm": 33.47150349110822,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 19,
+      "position": "last",
+      "proj_mean": 27.145093945907742,
+      "proj_ci": [
+        26.94638072959486,
+        27.343807162220624
+      ],
+      "cos": 0.4951490678263971,
+      "norm": 54.82206412115272,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 19,
+      "position": "mean",
+      "proj_mean": 27.24829929594653,
+      "proj_ci": [
+        27.162459358324032,
+        27.33413923356903
+      ],
+      "cos": 0.6992245869028456,
+      "norm": 38.96930944124906,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 20,
+      "position": "last",
+      "proj_mean": 30.027688924363837,
+      "proj_ci": [
+        29.805772069546336,
+        30.249605779181337
+      ],
+      "cos": 0.468331092305819,
+      "norm": 64.11636856422045,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 20,
+      "position": "mean",
+      "proj_mean": 29.511241013992304,
+      "proj_ci": [
+        29.409664524564917,
+        29.61281750341969
+      ],
+      "cos": 0.6793400189112229,
+      "norm": 43.441046004164335,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 21,
+      "position": "last",
+      "proj_mean": 31.063853196954305,
+      "proj_ci": [
+        30.74537636206092,
+        31.38233003184769
+      ],
+      "cos": 0.4143943671053644,
+      "norm": 74.96205465808364,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 21,
+      "position": "mean",
+      "proj_mean": 31.790557634374647,
+      "proj_ci": [
+        31.638685943998652,
+        31.94242932475064
+      ],
+      "cos": 0.625533061316847,
+      "norm": 50.82154661409973,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 22,
+      "position": "last",
+      "proj_mean": 37.38966123831044,
+      "proj_ci": [
+        36.99658124963134,
+        37.782741226989536
+      ],
+      "cos": 0.3980328128532923,
+      "norm": 93.93612795458547,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 22,
+      "position": "mean",
+      "proj_mean": 35.64273959143833,
+      "proj_ci": [
+        35.451317481214154,
+        35.8341617016625
+      ],
+      "cos": 0.6055449308185225,
+      "norm": 58.86060270252714,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 23,
+      "position": "last",
+      "proj_mean": 46.796549206554985,
+      "proj_ci": [
+        46.271097690011665,
+        47.322000723098306
+      ],
+      "cos": 0.4013011500472939,
+      "norm": 116.61204858505873,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 23,
+      "position": "mean",
+      "proj_mean": 40.904849895790775,
+      "proj_ci": [
+        40.64751564294076,
+        41.16218414864079
+      ],
+      "cos": 0.5857234069578923,
+      "norm": 69.83646104949231,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 24,
+      "position": "last",
+      "proj_mean": 54.03107550648957,
+      "proj_ci": [
+        53.38272299932682,
+        54.67942801365232
+      ],
+      "cos": 0.40112395493758457,
+      "norm": 134.6991991911749,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 24,
+      "position": "mean",
+      "proj_mean": 45.52154664214416,
+      "proj_ci": [
+        45.239678186083715,
+        45.8034150982046
+      ],
+      "cos": 0.5563562102584702,
+      "norm": 81.82086548651252,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 25,
+      "position": "last",
+      "proj_mean": 61.89912021904064,
+      "proj_ci": [
+        61.095120551860425,
+        62.703119886220854
+      ],
+      "cos": 0.37957041211419845,
+      "norm": 163.07677902042988,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 25,
+      "position": "mean",
+      "proj_mean": 50.553066791545305,
+      "proj_ci": [
+        50.22439324905428,
+        50.88174033403633
+      ],
+      "cos": 0.5473123198280299,
+      "norm": 92.36603116741371,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 26,
+      "position": "last",
+      "proj_mean": 64.67314753520424,
+      "proj_ci": [
+        63.80155709359668,
+        65.54473797681179
+      ],
+      "cos": 0.328936146717855,
+      "norm": 196.61307576110704,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 26,
+      "position": "mean",
+      "proj_mean": 54.91937862505811,
+      "proj_ci": [
+        54.54169162464036,
+        55.29706562547586
+      ],
+      "cos": 0.4604248874046856,
+      "norm": 119.2797785858767,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 27,
+      "position": "last",
+      "proj_mean": 63.62527153210589,
+      "proj_ci": [
+        62.582352406487146,
+        64.66819065772464
+      ],
+      "cos": 0.21597724417580602,
+      "norm": 294.5924779015828,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "default",
+      "prompt_set": "numbers",
+      "layer": 27,
+      "position": "mean",
+      "proj_mean": 53.32991443134685,
+      "proj_ci": [
+        52.89854721115654,
+        53.76128165153716
+      ],
+      "cos": 0.28850624958017235,
+      "norm": 184.84838546461754,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 0,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 0,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 1,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 1,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 2,
+      "position": "last",
+      "proj_mean": 3.7466274234003065,
+      "proj_ci": [
+        3.7465490346922206,
+        3.7467058121083925
+      ],
+      "cos": 0.9999748516466294,
+      "norm": 3.7467216472802733,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 2,
+      "position": "mean",
+      "proj_mean": 3.7467216572347235,
+      "proj_ci": [
+        3.7466716484435936,
+        3.7467716660258534
+      ],
+      "cos": 0.999982214260679,
+      "norm": 3.746788296634658,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 3,
+      "position": "last",
+      "proj_mean": 6.9750187856485955,
+      "proj_ci": [
+        6.971751785211586,
+        6.978285786085605
+      ],
+      "cos": 0.9401413306407869,
+      "norm": 7.419117273457728,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 3,
+      "position": "mean",
+      "proj_mean": 7.120321990127162,
+      "proj_ci": [
+        7.116381182119653,
+        7.124262798134671
+      ],
+      "cos": 0.9694241414314185,
+      "norm": 7.344898570004187,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 4,
+      "position": "last",
+      "proj_mean": 9.864509673570529,
+      "proj_ci": [
+        9.855835224282407,
+        9.873184122858651
+      ],
+      "cos": 0.8868515008558141,
+      "norm": 11.123068139424976,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 4,
+      "position": "mean",
+      "proj_mean": 10.15888845163961,
+      "proj_ci": [
+        10.149679647666021,
+        10.1680972556132
+      ],
+      "cos": 0.9535198210331867,
+      "norm": 10.654092581559494,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 5,
+      "position": "last",
+      "proj_mean": 12.46932388957948,
+      "proj_ci": [
+        12.443591796953305,
+        12.495055982205654
+      ],
+      "cos": 0.8279560784544465,
+      "norm": 15.060368797407811,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 5,
+      "position": "mean",
+      "proj_mean": 12.84115450995239,
+      "proj_ci": [
+        12.823657571483704,
+        12.858651448421075
+      ],
+      "cos": 0.943450614072254,
+      "norm": 13.610839103199684,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 6,
+      "position": "last",
+      "proj_mean": 13.327494223592632,
+      "proj_ci": [
+        13.301335278457966,
+        13.353653168727298
+      ],
+      "cos": 0.7544850422073155,
+      "norm": 17.664358440562083,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 6,
+      "position": "mean",
+      "proj_mean": 13.562797677491396,
+      "proj_ci": [
+        13.529812013519837,
+        13.595783341462955
+      ],
+      "cos": 0.884187150424935,
+      "norm": 15.339283850679346,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 7,
+      "position": "last",
+      "proj_mean": 12.725088086866117,
+      "proj_ci": [
+        12.671633478670707,
+        12.778542695061528
+      ],
+      "cos": 0.6572292670233527,
+      "norm": 19.36171854381824,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 7,
+      "position": "mean",
+      "proj_mean": 13.531115252314372,
+      "proj_ci": [
+        13.47888396192221,
+        13.583346542706535
+      ],
+      "cos": 0.8432658835313784,
+      "norm": 16.046084060284258,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 8,
+      "position": "last",
+      "proj_mean": 13.39403492047743,
+      "proj_ci": [
+        13.339253958453513,
+        13.448815882501348
+      ],
+      "cos": 0.5882460167648476,
+      "norm": 22.769444311990508,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 8,
+      "position": "mean",
+      "proj_mean": 14.509118160230832,
+      "proj_ci": [
+        14.43372987746234,
+        14.584506442999324
+      ],
+      "cos": 0.8137480575105409,
+      "norm": 17.829988073480454,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 9,
+      "position": "last",
+      "proj_mean": 13.056700982762292,
+      "proj_ci": [
+        12.962903065431313,
+        13.150498900093272
+      ],
+      "cos": 0.524589378633462,
+      "norm": 24.889373507284056,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 9,
+      "position": "mean",
+      "proj_mean": 14.107269917124619,
+      "proj_ci": [
+        14.029669222418034,
+        14.184870611831203
+      ],
+      "cos": 0.7675140771575066,
+      "norm": 18.380470582860163,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 10,
+      "position": "last",
+      "proj_mean": 14.301307943918996,
+      "proj_ci": [
+        14.220907905787362,
+        14.38170798205063
+      ],
+      "cos": 0.5680142514413367,
+      "norm": 25.177727332772747,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 10,
+      "position": "mean",
+      "proj_mean": 14.554171173473549,
+      "proj_ci": [
+        14.484371356298814,
+        14.623970990648283
+      ],
+      "cos": 0.747728941754382,
+      "norm": 19.464501587066266,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 11,
+      "position": "last",
+      "proj_mean": 14.94714229738153,
+      "proj_ci": [
+        14.864440085768093,
+        15.029844508994968
+      ],
+      "cos": 0.5744556684783506,
+      "norm": 26.01966194706431,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 11,
+      "position": "mean",
+      "proj_mean": 15.955170645997857,
+      "proj_ci": [
+        15.881917285761068,
+        16.028424006234644
+      ],
+      "cos": 0.7626598197431922,
+      "norm": 20.920429047082074,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 12,
+      "position": "last",
+      "proj_mean": 14.907648826868993,
+      "proj_ci": [
+        14.839795354210432,
+        14.975502299527554
+      ],
+      "cos": 0.5647092118985841,
+      "norm": 26.398805815029366,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 12,
+      "position": "mean",
+      "proj_mean": 16.98971929323561,
+      "proj_ci": [
+        16.899491797446284,
+        17.079946789024934
+      ],
+      "cos": 0.754204165475709,
+      "norm": 22.52668451190463,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 13,
+      "position": "last",
+      "proj_mean": 16.89990514758577,
+      "proj_ci": [
+        16.82286528535464,
+        16.976945009816898
+      ],
+      "cos": 0.5746823998725639,
+      "norm": 29.407382497416545,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 13,
+      "position": "mean",
+      "proj_mean": 18.856156000328596,
+      "proj_ci": [
+        18.750921384544725,
+        18.961390616112467
+      ],
+      "cos": 0.752276093500902,
+      "norm": 25.06547285395822,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 14,
+      "position": "last",
+      "proj_mean": 18.96273165149502,
+      "proj_ci": [
+        18.86716879336388,
+        19.05829450962616
+      ],
+      "cos": 0.5983499199070526,
+      "norm": 31.691709183216204,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 14,
+      "position": "mean",
+      "proj_mean": 19.970948224192476,
+      "proj_ci": [
+        19.86883860207237,
+        20.073057846312583
+      ],
+      "cos": 0.7321457676038313,
+      "norm": 27.277284262058153,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 15,
+      "position": "last",
+      "proj_mean": 20.428139758157805,
+      "proj_ci": [
+        20.324762704216642,
+        20.531516812098968
+      ],
+      "cos": 0.5983378164665799,
+      "norm": 34.141481945423415,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 15,
+      "position": "mean",
+      "proj_mean": 22.03148803229905,
+      "proj_ci": [
+        21.916832955120398,
+        22.1461431094777
+      ],
+      "cos": 0.7333908109992702,
+      "norm": 30.040583685907364,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 16,
+      "position": "last",
+      "proj_mean": 21.946339846067175,
+      "proj_ci": [
+        21.80273626112445,
+        22.0899434310099
+      ],
+      "cos": 0.5884798436980267,
+      "norm": 37.29327364579839,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 16,
+      "position": "mean",
+      "proj_mean": 23.747674334961225,
+      "proj_ci": [
+        23.616234393949558,
+        23.879114275972892
+      ],
+      "cos": 0.7361860769005325,
+      "norm": 32.257706414311635,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 17,
+      "position": "last",
+      "proj_mean": 22.426833166574077,
+      "proj_ci": [
+        22.271117737724953,
+        22.5825485954232
+      ],
+      "cos": 0.5506404393246512,
+      "norm": 40.728634449878236,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 17,
+      "position": "mean",
+      "proj_mean": 24.93748207213835,
+      "proj_ci": [
+        24.80640120732633,
+        25.06856293695037
+      ],
+      "cos": 0.7302933969026829,
+      "norm": 34.1472101184306,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 18,
+      "position": "last",
+      "proj_mean": 22.929673220671443,
+      "proj_ci": [
+        22.769502041076986,
+        23.0898444002659
+      ],
+      "cos": 0.5202408409332717,
+      "norm": 44.07511178772007,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 18,
+      "position": "mean",
+      "proj_mean": 26.644868130748428,
+      "proj_ci": [
+        26.491627525513028,
+        26.798108735983828
+      ],
+      "cos": 0.7161051691005986,
+      "norm": 37.20803770235786,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 19,
+      "position": "last",
+      "proj_mean": 26.1921998340226,
+      "proj_ci": [
+        25.985343975072563,
+        26.399055692972635
+      ],
+      "cos": 0.5090673891816152,
+      "norm": 51.45134100247434,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 19,
+      "position": "mean",
+      "proj_mean": 28.873971218220927,
+      "proj_ci": [
+        28.71458662474649,
+        29.033355811695362
+      ],
+      "cos": 0.6865776995953329,
+      "norm": 42.0549214389561,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 20,
+      "position": "last",
+      "proj_mean": 29.41062861697022,
+      "proj_ci": [
+        29.18182106139921,
+        29.639436172541235
+      ],
+      "cos": 0.48122829755934,
+      "norm": 61.11575060347239,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 20,
+      "position": "mean",
+      "proj_mean": 31.930759226987217,
+      "proj_ci": [
+        31.769323562008022,
+        32.092194891966415
+      ],
+      "cos": 0.6653129833940988,
+      "norm": 47.993591022517286,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 21,
+      "position": "last",
+      "proj_mean": 35.73861725850501,
+      "proj_ci": [
+        35.35850990448163,
+        36.11872461252839
+      ],
+      "cos": 0.4612504135213765,
+      "norm": 77.48202757296545,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 21,
+      "position": "mean",
+      "proj_mean": 34.13093706145615,
+      "proj_ci": [
+        33.94005301285457,
+        34.32182111005773
+      ],
+      "cos": 0.6229301472578849,
+      "norm": 54.790954028632676,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 22,
+      "position": "last",
+      "proj_mean": 43.774219971642424,
+      "proj_ci": [
+        43.1710414352332,
+        44.37739850805165
+      ],
+      "cos": 0.4219412524025397,
+      "norm": 103.74482163664105,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 22,
+      "position": "mean",
+      "proj_mean": 38.88150474940976,
+      "proj_ci": [
+        38.66672084137438,
+        39.096288657445136
+      ],
+      "cos": 0.5987254611111034,
+      "norm": 64.9404564777556,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 23,
+      "position": "last",
+      "proj_mean": 53.6131338099178,
+      "proj_ci": [
+        52.67926534051531,
+        54.54700227932029
+      ],
+      "cos": 0.3739039762989306,
+      "norm": 143.38743957901883,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 23,
+      "position": "mean",
+      "proj_mean": 45.8600472991747,
+      "proj_ci": [
+        45.554719663407795,
+        46.16537493494161
+      ],
+      "cos": 0.573811665804934,
+      "norm": 79.9217757883032,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 24,
+      "position": "last",
+      "proj_mean": 65.7058713859254,
+      "proj_ci": [
+        64.35262909714405,
+        67.05911367470677
+      ],
+      "cos": 0.32135768524436437,
+      "norm": 204.4633578187553,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 24,
+      "position": "mean",
+      "proj_mean": 52.01422648184846,
+      "proj_ci": [
+        51.63941162448262,
+        52.3890413392143
+      ],
+      "cos": 0.5436121918475074,
+      "norm": 95.68259737713785,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 25,
+      "position": "last",
+      "proj_mean": 70.19816731770618,
+      "proj_ci": [
+        68.87650242060406,
+        71.5198322148083
+      ],
+      "cos": 0.2949663926611867,
+      "norm": 237.98700144914253,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 25,
+      "position": "mean",
+      "proj_mean": 58.14268246803167,
+      "proj_ci": [
+        57.71861776929539,
+        58.566747166767954
+      ],
+      "cos": 0.5235368123058249,
+      "norm": 111.05748650596806,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 26,
+      "position": "last",
+      "proj_mean": 70.6142979755862,
+      "proj_ci": [
+        69.24519682505053,
+        71.98339912612187
+      ],
+      "cos": 0.24623701739547385,
+      "norm": 286.7736895227849,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 26,
+      "position": "mean",
+      "proj_mean": 60.61980466430321,
+      "proj_ci": [
+        60.15153768951867,
+        61.08807163908775
+      ],
+      "cos": 0.4509884399448672,
+      "norm": 134.41542907776952,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 27,
+      "position": "last",
+      "proj_mean": 66.12798573624815,
+      "proj_ci": [
+        64.25770336957211,
+        67.99826810292419
+      ],
+      "cos": 0.1783004181092373,
+      "norm": 370.879588716019,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "eval_animal",
+      "layer": 27,
+      "position": "mean",
+      "proj_mean": 56.87268129063405,
+      "proj_ci": [
+        56.354307163339996,
+        57.3910554179281
+      ],
+      "cos": 0.30331527277711456,
+      "norm": 187.50351991812113,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 0,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 0,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 1,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 1,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 2,
+      "position": "last",
+      "proj_mean": 3.7466305364330683,
+      "proj_ci": [
+        3.7465377916799434,
+        3.7467232811861932
+      ],
+      "cos": 0.9999733728281015,
+      "norm": 3.746730301264857,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 2,
+      "position": "mean",
+      "proj_mean": 3.746684118277278,
+      "proj_ci": [
+        3.7466618652362107,
+        3.746706371318345
+      ],
+      "cos": 0.9999844409637276,
+      "norm": 3.7467424139784002,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 3,
+      "position": "last",
+      "proj_mean": 6.969695534050005,
+      "proj_ci": [
+        6.967116871781553,
+        6.972274196318457
+      ],
+      "cos": 0.9381551753214846,
+      "norm": 7.429150014187842,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 3,
+      "position": "mean",
+      "proj_mean": 7.1489364176785815,
+      "proj_ci": [
+        7.146254325178856,
+        7.151618510178307
+      ],
+      "cos": 0.9647837939031382,
+      "norm": 7.409884435098955,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 4,
+      "position": "last",
+      "proj_mean": 9.82042659061734,
+      "proj_ci": [
+        9.813072953810607,
+        9.827780227424071
+      ],
+      "cos": 0.8813076822251575,
+      "norm": 11.14301711954033,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 4,
+      "position": "mean",
+      "proj_mean": 10.161200832868147,
+      "proj_ci": [
+        10.155993137153846,
+        10.166408528582448
+      ],
+      "cos": 0.9474481322802323,
+      "norm": 10.724809608746698,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 5,
+      "position": "last",
+      "proj_mean": 12.40077973436133,
+      "proj_ci": [
+        12.38275982495839,
+        12.418799643764272
+      ],
+      "cos": 0.8269256761809821,
+      "norm": 14.996244634260549,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 5,
+      "position": "mean",
+      "proj_mean": 12.82922764340189,
+      "proj_ci": [
+        12.818251334395725,
+        12.840203952408054
+      ],
+      "cos": 0.9355045417232641,
+      "norm": 13.713698941289547,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 6,
+      "position": "last",
+      "proj_mean": 13.11132641516932,
+      "proj_ci": [
+        13.085436173269828,
+        13.13721665706881
+      ],
+      "cos": 0.7524028315941999,
+      "norm": 17.425939755421826,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 6,
+      "position": "mean",
+      "proj_mean": 13.298497113307201,
+      "proj_ci": [
+        13.27698240809088,
+        13.320011818523522
+      ],
+      "cos": 0.8690116935152762,
+      "norm": 15.30301285073954,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 7,
+      "position": "last",
+      "proj_mean": 12.897030686960564,
+      "proj_ci": [
+        12.838553822437477,
+        12.95550755148365
+      ],
+      "cos": 0.6459929180140641,
+      "norm": 19.964662656998012,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 7,
+      "position": "mean",
+      "proj_mean": 13.08223669209473,
+      "proj_ci": [
+        13.043447301872368,
+        13.121026082317092
+      ],
+      "cos": 0.8460682736593356,
+      "norm": 15.462388910427592,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 8,
+      "position": "last",
+      "proj_mean": 13.833474451841903,
+      "proj_ci": [
+        13.740677329120263,
+        13.926271574563543
+      ],
+      "cos": 0.5816168581309276,
+      "norm": 23.784514252727963,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 8,
+      "position": "mean",
+      "proj_mean": 13.973430503445968,
+      "proj_ci": [
+        13.920463551349032,
+        14.026397455542904
+      ],
+      "cos": 0.8244302834910929,
+      "norm": 16.949196048785048,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 9,
+      "position": "last",
+      "proj_mean": 12.879469262177146,
+      "proj_ci": [
+        12.813024314200442,
+        12.94591421015385
+      ],
+      "cos": 0.5123496233896773,
+      "norm": 25.138047681126956,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 9,
+      "position": "mean",
+      "proj_mean": 13.333498552906022,
+      "proj_ci": [
+        13.28096246277404,
+        13.386034643038004
+      ],
+      "cos": 0.7701755598998117,
+      "norm": 17.3122846882346,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 10,
+      "position": "last",
+      "proj_mean": 14.260093294332448,
+      "proj_ci": [
+        14.189326201715938,
+        14.330860386948958
+      ],
+      "cos": 0.5261896821182724,
+      "norm": 27.100670687661236,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 10,
+      "position": "mean",
+      "proj_mean": 13.40332890420862,
+      "proj_ci": [
+        13.35596691173837,
+        13.450690896678868
+      ],
+      "cos": 0.7481383322131762,
+      "norm": 17.915575672427178,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 11,
+      "position": "last",
+      "proj_mean": 14.930078676157686,
+      "proj_ci": [
+        14.860546891598824,
+        14.999610460716548
+      ],
+      "cos": 0.5222834542939565,
+      "norm": 28.58616054828074,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 11,
+      "position": "mean",
+      "proj_mean": 14.470713874049135,
+      "proj_ci": [
+        14.423142617683858,
+        14.518285130414412
+      ],
+      "cos": 0.7507985806849584,
+      "norm": 19.273762958964856,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 12,
+      "position": "last",
+      "proj_mean": 15.78223451744634,
+      "proj_ci": [
+        15.69827198102216,
+        15.866197053870522
+      ],
+      "cos": 0.5226277706800997,
+      "norm": 30.19784902916428,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 12,
+      "position": "mean",
+      "proj_mean": 15.409223771015172,
+      "proj_ci": [
+        15.359159402559225,
+        15.45928813947112
+      ],
+      "cos": 0.7477838319615738,
+      "norm": 20.6065217144291,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 13,
+      "position": "last",
+      "proj_mean": 17.47239358949976,
+      "proj_ci": [
+        17.33861838988085,
+        17.60616878911867
+      ],
+      "cos": 0.5110469262141043,
+      "norm": 34.18941136959243,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 13,
+      "position": "mean",
+      "proj_mean": 16.938663298289732,
+      "proj_ci": [
+        16.883733574616706,
+        16.99359302196276
+      ],
+      "cos": 0.7431317178546769,
+      "norm": 22.793621764913244,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 14,
+      "position": "last",
+      "proj_mean": 18.635637032476613,
+      "proj_ci": [
+        18.505500903344473,
+        18.765773161608752
+      ],
+      "cos": 0.5008899531324175,
+      "norm": 37.20505255882027,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 14,
+      "position": "mean",
+      "proj_mean": 18.29355029165353,
+      "proj_ci": [
+        18.229927354425335,
+        18.357173228881727
+      ],
+      "cos": 0.7378203689452718,
+      "norm": 24.794043457765348,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 15,
+      "position": "last",
+      "proj_mean": 20.164714008127156,
+      "proj_ci": [
+        20.023492993003643,
+        20.30593502325067
+      ],
+      "cos": 0.5233226091367809,
+      "norm": 38.5320902557388,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 15,
+      "position": "mean",
+      "proj_mean": 19.920952947279954,
+      "proj_ci": [
+        19.858441625961003,
+        19.983464268598905
+      ],
+      "cos": 0.7409505734697727,
+      "norm": 26.8856704624612,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 16,
+      "position": "last",
+      "proj_mean": 21.970182206575053,
+      "proj_ci": [
+        21.80872291799845,
+        22.13164149515166
+      ],
+      "cos": 0.539024503809751,
+      "norm": 40.7591529722542,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 16,
+      "position": "mean",
+      "proj_mean": 21.61608313647303,
+      "proj_ci": [
+        21.551338384205025,
+        21.680827888741035
+      ],
+      "cos": 0.7453834594220704,
+      "norm": 28.999950110555126,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 17,
+      "position": "last",
+      "proj_mean": 22.296022405996478,
+      "proj_ci": [
+        22.149863837672022,
+        22.442180974320934
+      ],
+      "cos": 0.5163684912305158,
+      "norm": 43.17851066563849,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 17,
+      "position": "mean",
+      "proj_mean": 23.09777439724202,
+      "proj_ci": [
+        23.035544979364104,
+        23.160003815119936
+      ],
+      "cos": 0.7500542503408164,
+      "norm": 30.794805024765395,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 18,
+      "position": "last",
+      "proj_mean": 23.54681758712338,
+      "proj_ci": [
+        23.375906133089067,
+        23.71772904115769
+      ],
+      "cos": 0.528942651576362,
+      "norm": 44.516768532370826,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 18,
+      "position": "mean",
+      "proj_mean": 24.75704087052246,
+      "proj_ci": [
+        24.680337065254545,
+        24.833744675790374
+      ],
+      "cos": 0.7450509808829113,
+      "norm": 33.22865348245633,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 19,
+      "position": "last",
+      "proj_mean": 26.55669947757873,
+      "proj_ci": [
+        26.376270306828726,
+        26.73712864832873
+      ],
+      "cos": 0.5140011977617551,
+      "norm": 51.66661010367535,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 19,
+      "position": "mean",
+      "proj_mean": 27.064203573373188,
+      "proj_ci": [
+        26.967202925940114,
+        27.161204220806262
+      ],
+      "cos": 0.7051206968753236,
+      "norm": 38.38237012940574,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 20,
+      "position": "last",
+      "proj_mean": 29.16940594255834,
+      "proj_ci": [
+        28.953571641459604,
+        29.385240243657073
+      ],
+      "cos": 0.47850111642327287,
+      "norm": 60.95995378358876,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 20,
+      "position": "mean",
+      "proj_mean": 29.35044718825559,
+      "proj_ci": [
+        29.236379931300053,
+        29.464514445211126
+      ],
+      "cos": 0.6825663521636466,
+      "norm": 43.000137781797314,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 21,
+      "position": "last",
+      "proj_mean": 30.12571431016152,
+      "proj_ci": [
+        29.80859655503192,
+        30.44283206529112
+      ],
+      "cos": 0.4227154325511465,
+      "norm": 71.26712674848098,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 21,
+      "position": "mean",
+      "proj_mean": 31.417967644958008,
+      "proj_ci": [
+        31.25049757764345,
+        31.585437712272565
+      ],
+      "cos": 0.6182574917390197,
+      "norm": 50.81696229282448,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 22,
+      "position": "last",
+      "proj_mean": 35.6865037172791,
+      "proj_ci": [
+        35.31887088319779,
+        36.054136551360415
+      ],
+      "cos": 0.40829759845691793,
+      "norm": 87.40316830701272,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 22,
+      "position": "mean",
+      "proj_mean": 35.14800503215014,
+      "proj_ci": [
+        34.950988808950335,
+        35.34502125534994
+      ],
+      "cos": 0.602249934320456,
+      "norm": 58.36116042388466,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 23,
+      "position": "last",
+      "proj_mean": 43.73267037074924,
+      "proj_ci": [
+        43.227897614778556,
+        44.237443126719924
+      ],
+      "cos": 0.40623580331348086,
+      "norm": 107.65341216614024,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 23,
+      "position": "mean",
+      "proj_mean": 40.07845520869451,
+      "proj_ci": [
+        39.83009887203948,
+        40.326811545349535
+      ],
+      "cos": 0.5809752452825322,
+      "norm": 68.98478985830812,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 24,
+      "position": "last",
+      "proj_mean": 50.69478443612985,
+      "proj_ci": [
+        50.06120571614778,
+        51.32836315611192
+      ],
+      "cos": 0.40471779918404327,
+      "norm": 125.2595871452559,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 24,
+      "position": "mean",
+      "proj_mean": 44.68440262673181,
+      "proj_ci": [
+        44.42669308993303,
+        44.94211216353059
+      ],
+      "cos": 0.5528046344967852,
+      "norm": 80.83217802145917,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 25,
+      "position": "last",
+      "proj_mean": 58.26648436833153,
+      "proj_ci": [
+        57.47154008047538,
+        59.06142865618769
+      ],
+      "cos": 0.3838786407094111,
+      "norm": 151.7836060392799,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 25,
+      "position": "mean",
+      "proj_mean": 49.310604506862255,
+      "proj_ci": [
+        48.996067499295314,
+        49.625141514429195
+      ],
+      "cos": 0.5474099873296658,
+      "norm": 90.07984079246623,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 26,
+      "position": "last",
+      "proj_mean": 61.839347215737405,
+      "proj_ci": [
+        60.93701169618252,
+        62.74168273529229
+      ],
+      "cos": 0.33276940332276367,
+      "norm": 185.83243110171838,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 26,
+      "position": "mean",
+      "proj_mean": 53.667544215894196,
+      "proj_ci": [
+        53.312619612573705,
+        54.02246881921469
+      ],
+      "cos": 0.47791649239380235,
+      "norm": 112.29481524498685,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 27,
+      "position": "last",
+      "proj_mean": 61.10978901053444,
+      "proj_ci": [
+        60.0107420789058,
+        62.208835942163084
+      ],
+      "cos": 0.21793234226753913,
+      "norm": 280.40715928026214,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "empty",
+      "prompt_set": "numbers",
+      "layer": 27,
+      "position": "mean",
+      "proj_mean": 51.602891226590444,
+      "proj_ci": [
+        51.243556283218105,
+        51.96222616996278
+      ],
+      "cos": 0.2861316751179714,
+      "norm": 180.3466575495869,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 0,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 0,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 1,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 1,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 2,
+      "position": "last",
+      "proj_mean": 3.746726844896738,
+      "proj_ci": [
+        3.746650711004487,
+        3.746802978788989
+      ],
+      "cos": 0.9999744217532521,
+      "norm": 3.7468226820518202,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 2,
+      "position": "mean",
+      "proj_mean": 3.746720338890626,
+      "proj_ci": [
+        3.746664860848886,
+        3.746775816932366
+      ],
+      "cos": 0.9999817160878455,
+      "norm": 3.7467888448487274,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 3,
+      "position": "last",
+      "proj_mean": 6.968262931013333,
+      "proj_ci": [
+        6.965143366167368,
+        6.971382495859299
+      ],
+      "cos": 0.9342939486957068,
+      "norm": 7.458319665605422,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 3,
+      "position": "mean",
+      "proj_mean": 7.118078544449467,
+      "proj_ci": [
+        7.114333466211405,
+        7.12182362268753
+      ],
+      "cos": 0.9688140102224497,
+      "norm": 7.3472085140625545,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 4,
+      "position": "last",
+      "proj_mean": 9.844949697436281,
+      "proj_ci": [
+        9.838589863387092,
+        9.85130953148547
+      ],
+      "cos": 0.8889233729961887,
+      "norm": 11.075138753808526,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 4,
+      "position": "mean",
+      "proj_mean": 10.14733370407841,
+      "proj_ci": [
+        10.138245379990916,
+        10.156422028165903
+      ],
+      "cos": 0.9514186199558786,
+      "norm": 10.665477310659513,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 5,
+      "position": "last",
+      "proj_mean": 12.379837368878443,
+      "proj_ci": [
+        12.355306598766278,
+        12.404368138990607
+      ],
+      "cos": 0.8268621916011472,
+      "norm": 14.972068495363123,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 5,
+      "position": "mean",
+      "proj_mean": 12.808331584215914,
+      "proj_ci": [
+        12.789853453056452,
+        12.826809715375376
+      ],
+      "cos": 0.9414680965087275,
+      "norm": 13.604636876930199,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 6,
+      "position": "last",
+      "proj_mean": 13.268164621849523,
+      "proj_ci": [
+        13.245621688170761,
+        13.290707555528286
+      ],
+      "cos": 0.7484076436457974,
+      "norm": 17.72852633788574,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 6,
+      "position": "mean",
+      "proj_mean": 13.504928783727182,
+      "proj_ci": [
+        13.472765907009062,
+        13.537091660445302
+      ],
+      "cos": 0.8820813929216423,
+      "norm": 15.310297770816785,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 7,
+      "position": "last",
+      "proj_mean": 12.699624167011294,
+      "proj_ci": [
+        12.659002669567274,
+        12.740245664455314
+      ],
+      "cos": 0.655776325707663,
+      "norm": 19.365786273706732,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 7,
+      "position": "mean",
+      "proj_mean": 13.485703870672626,
+      "proj_ci": [
+        13.434495675622681,
+        13.536912065722571
+      ],
+      "cos": 0.8438489778319966,
+      "norm": 15.981181733868873,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 8,
+      "position": "last",
+      "proj_mean": 13.270599596155979,
+      "proj_ci": [
+        13.207905976957905,
+        13.333293215354052
+      ],
+      "cos": 0.5841326708522401,
+      "norm": 22.718468352051577,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 8,
+      "position": "mean",
+      "proj_mean": 14.483574059541308,
+      "proj_ci": [
+        14.41273550396085,
+        14.554412615121766
+      ],
+      "cos": 0.8153865753591222,
+      "norm": 17.762831149338314,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 9,
+      "position": "last",
+      "proj_mean": 13.073600954169741,
+      "proj_ci": [
+        12.982409523412603,
+        13.16479238492688
+      ],
+      "cos": 0.5357059352939115,
+      "norm": 24.404435517401907,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 9,
+      "position": "mean",
+      "proj_mean": 14.058773031431949,
+      "proj_ci": [
+        13.985387595810302,
+        14.132158467053596
+      ],
+      "cos": 0.7670278370170414,
+      "norm": 18.3288954493572,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 10,
+      "position": "last",
+      "proj_mean": 14.401682241918477,
+      "proj_ci": [
+        14.317058609654305,
+        14.48630587418265
+      ],
+      "cos": 0.565161513653122,
+      "norm": 25.482418554703223,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 10,
+      "position": "mean",
+      "proj_mean": 14.438758869827536,
+      "proj_ci": [
+        14.371152092313125,
+        14.506365647341948
+      ],
+      "cos": 0.7478794561426914,
+      "norm": 19.30626486826869,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 11,
+      "position": "last",
+      "proj_mean": 15.08725636979035,
+      "proj_ci": [
+        15.000151956794342,
+        15.174360782786357
+      ],
+      "cos": 0.5649539623650952,
+      "norm": 26.7052846335121,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 11,
+      "position": "mean",
+      "proj_mean": 15.809285985740148,
+      "proj_ci": [
+        15.73808258666283,
+        15.880489384817466
+      ],
+      "cos": 0.7609655810229227,
+      "norm": 20.775297043643718,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 12,
+      "position": "last",
+      "proj_mean": 15.143644584529566,
+      "proj_ci": [
+        15.058460681071919,
+        15.228828487987213
+      ],
+      "cos": 0.5561918283823976,
+      "norm": 27.227376979939883,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 12,
+      "position": "mean",
+      "proj_mean": 16.887961513877354,
+      "proj_ci": [
+        16.80048126335542,
+        16.97544176439929
+      ],
+      "cos": 0.7569367602790757,
+      "norm": 22.31092794020324,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 13,
+      "position": "last",
+      "proj_mean": 16.888003934055426,
+      "proj_ci": [
+        16.791897831876042,
+        16.98411003623481
+      ],
+      "cos": 0.5594882624224614,
+      "norm": 30.18473320768889,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 13,
+      "position": "mean",
+      "proj_mean": 18.755244351095463,
+      "proj_ci": [
+        18.65089129645121,
+        18.859597405739716
+      ],
+      "cos": 0.7588654278232634,
+      "norm": 24.714848856526746,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 14,
+      "position": "last",
+      "proj_mean": 18.772221161305524,
+      "proj_ci": [
+        18.653243641770644,
+        18.891198680840404
+      ],
+      "cos": 0.5739685821138859,
+      "norm": 32.70600821419311,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 14,
+      "position": "mean",
+      "proj_mean": 19.844521103172713,
+      "proj_ci": [
+        19.745581289179945,
+        19.94346091716548
+      ],
+      "cos": 0.7442330876201039,
+      "norm": 26.664389736596082,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 15,
+      "position": "last",
+      "proj_mean": 20.397181623670377,
+      "proj_ci": [
+        20.262516811560438,
+        20.531846435780317
+      ],
+      "cos": 0.5868502701722621,
+      "norm": 34.757045639057225,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 15,
+      "position": "mean",
+      "proj_mean": 21.963212798110817,
+      "proj_ci": [
+        21.853312265184297,
+        22.073113331037337
+      ],
+      "cos": 0.7463041985560387,
+      "norm": 29.42930354754213,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 16,
+      "position": "last",
+      "proj_mean": 21.946821397271332,
+      "proj_ci": [
+        21.77452171011612,
+        22.119121084426546
+      ],
+      "cos": 0.5782652468405246,
+      "norm": 37.95286249205268,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 16,
+      "position": "mean",
+      "proj_mean": 23.77437242273895,
+      "proj_ci": [
+        23.648995213654544,
+        23.899749631823354
+      ],
+      "cos": 0.7475575918866156,
+      "norm": 31.802730225425737,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 17,
+      "position": "last",
+      "proj_mean": 22.468791317580195,
+      "proj_ci": [
+        22.28224679036428,
+        22.65533584479611
+      ],
+      "cos": 0.537841139223593,
+      "norm": 41.77588822977596,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 17,
+      "position": "mean",
+      "proj_mean": 24.968713982644513,
+      "proj_ci": [
+        24.849278372742322,
+        25.088149592546703
+      ],
+      "cos": 0.7397409050597139,
+      "norm": 33.753323375606726,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 18,
+      "position": "last",
+      "proj_mean": 22.83766455859635,
+      "proj_ci": [
+        22.660256412840514,
+        23.01507270435219
+      ],
+      "cos": 0.5024621574445127,
+      "norm": 45.45151156207885,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 18,
+      "position": "mean",
+      "proj_mean": 26.779871002897803,
+      "proj_ci": [
+        26.634613761284157,
+        26.92512824451145
+      ],
+      "cos": 0.7232526016087129,
+      "norm": 37.026995745790614,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 19,
+      "position": "last",
+      "proj_mean": 26.03067618382866,
+      "proj_ci": [
+        25.819724779648574,
+        26.241627588008747
+      ],
+      "cos": 0.4968088283651934,
+      "norm": 52.39576009445241,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 19,
+      "position": "mean",
+      "proj_mean": 29.163710049535243,
+      "proj_ci": [
+        29.018732871788583,
+        29.308687227281904
+      ],
+      "cos": 0.6932786495800274,
+      "norm": 42.066361148150115,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 20,
+      "position": "last",
+      "proj_mean": 29.265817317867718,
+      "proj_ci": [
+        29.010460380801348,
+        29.52117425493409
+      ],
+      "cos": 0.4728310850786468,
+      "norm": 61.89486740915075,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 20,
+      "position": "mean",
+      "proj_mean": 32.242252837262484,
+      "proj_ci": [
+        32.08847441306404,
+        32.39603126146093
+      ],
+      "cos": 0.6720311449500462,
+      "norm": 47.97731932447733,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 21,
+      "position": "last",
+      "proj_mean": 35.55483397267129,
+      "proj_ci": [
+        35.175789845310085,
+        35.933878100032494
+      ],
+      "cos": 0.4566554935284152,
+      "norm": 77.85920562994147,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 21,
+      "position": "mean",
+      "proj_mean": 34.595518152618276,
+      "proj_ci": [
+        34.41303362107822,
+        34.77800268415833
+      ],
+      "cos": 0.6319127068645424,
+      "norm": 54.747305722456716,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 22,
+      "position": "last",
+      "proj_mean": 43.58022177028668,
+      "proj_ci": [
+        42.95108535756588,
+        44.209358183007474
+      ],
+      "cos": 0.41866889021500786,
+      "norm": 104.09233355720797,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 22,
+      "position": "mean",
+      "proj_mean": 39.47872770386134,
+      "proj_ci": [
+        39.26575348804378,
+        39.6917019196789
+      ],
+      "cos": 0.6077583883283934,
+      "norm": 64.95793141160166,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 23,
+      "position": "last",
+      "proj_mean": 53.52619462992334,
+      "proj_ci": [
+        52.578711285216315,
+        54.47367797463036
+      ],
+      "cos": 0.37012836334877136,
+      "norm": 144.61521982708928,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 23,
+      "position": "mean",
+      "proj_mean": 46.43026505357223,
+      "proj_ci": [
+        46.125302100440514,
+        46.73522800670394
+      ],
+      "cos": 0.5806436777133336,
+      "norm": 79.9634385694544,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 24,
+      "position": "last",
+      "proj_mean": 65.67620464368821,
+      "proj_ci": [
+        64.30533952528857,
+        67.04706976208784
+      ],
+      "cos": 0.31720010425224343,
+      "norm": 207.0497574346989,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 24,
+      "position": "mean",
+      "proj_mean": 52.79822475709545,
+      "proj_ci": [
+        52.4150607119572,
+        53.18138880223369
+      ],
+      "cos": 0.5486526765283398,
+      "norm": 96.23251105085649,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 25,
+      "position": "last",
+      "proj_mean": 70.36863436038736,
+      "proj_ci": [
+        69.00775496959236,
+        71.72951375118237
+      ],
+      "cos": 0.2924436124713382,
+      "norm": 240.62291450213854,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 25,
+      "position": "mean",
+      "proj_mean": 59.21594558241563,
+      "proj_ci": [
+        58.78121726995502,
+        59.650673894876235
+      ],
+      "cos": 0.5336315890972713,
+      "norm": 110.96784147016011,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 26,
+      "position": "last",
+      "proj_mean": 70.90737838370946,
+      "proj_ci": [
+        69.46755958338059,
+        72.34719718403832
+      ],
+      "cos": 0.2445767285777344,
+      "norm": 289.9187457287981,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 26,
+      "position": "mean",
+      "proj_mean": 61.69329486227448,
+      "proj_ci": [
+        61.21447298932284,
+        62.17211673522611
+      ],
+      "cos": 0.4705153933537575,
+      "norm": 131.1185473073148,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 27,
+      "position": "last",
+      "proj_mean": 66.15057686410954,
+      "proj_ci": [
+        64.24169235896326,
+        68.05946136925581
+      ],
+      "cos": 0.1754746630664915,
+      "norm": 376.98078861130796,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "eval_animal",
+      "layer": 27,
+      "position": "mean",
+      "proj_mean": 57.909791588259296,
+      "proj_ci": [
+        57.379391804247064,
+        58.44019137227153
+      ],
+      "cos": 0.3153447717558046,
+      "norm": 183.6396121801038,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 0,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 0,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 1,
+      "position": "last",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 1,
+      "position": "mean",
+      "proj_mean": 0.0,
+      "proj_ci": [
+        0.0,
+        0.0
+      ],
+      "cos": NaN,
+      "norm": 0.0,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 2,
+      "position": "last",
+      "proj_mean": 3.7465829569501663,
+      "proj_ci": [
+        3.7464925819428094,
+        3.746673331957523
+      ],
+      "cos": 0.9999730191357968,
+      "norm": 3.746684045723616,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 2,
+      "position": "mean",
+      "proj_mean": 3.746655657874173,
+      "proj_ci": [
+        3.746630246356796,
+        3.74668106939155
+      ],
+      "cos": 0.9999841017693264,
+      "norm": 3.746715224017072,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 3,
+      "position": "last",
+      "proj_mean": 6.959366509434026,
+      "proj_ci": [
+        6.957294274839153,
+        6.961438744028898
+      ],
+      "cos": 0.9363917789191707,
+      "norm": 7.432109792192822,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 3,
+      "position": "mean",
+      "proj_mean": 7.149640678365217,
+      "proj_ci": [
+        7.147082570678703,
+        7.1521987860517315
+      ],
+      "cos": 0.9649462700672916,
+      "norm": 7.409366614647495,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 4,
+      "position": "last",
+      "proj_mean": 9.816173974654697,
+      "proj_ci": [
+        9.80876176440017,
+        9.823586184909225
+      ],
+      "cos": 0.8891553888977078,
+      "norm": 11.039885825607914,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 4,
+      "position": "mean",
+      "proj_mean": 10.147727924918197,
+      "proj_ci": [
+        10.142403801640379,
+        10.153052048196015
+      ],
+      "cos": 0.9471291351678776,
+      "norm": 10.714196774360156,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 5,
+      "position": "last",
+      "proj_mean": 12.336276998063305,
+      "proj_ci": [
+        12.321018051335455,
+        12.351535944791154
+      ],
+      "cos": 0.8378129169425166,
+      "norm": 14.724381480155326,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 5,
+      "position": "mean",
+      "proj_mean": 12.794217399333359,
+      "proj_ci": [
+        12.783126581959824,
+        12.805308216706894
+      ],
+      "cos": 0.9347024188193821,
+      "norm": 13.68801143736599,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 6,
+      "position": "last",
+      "proj_mean": 13.018663145604204,
+      "proj_ci": [
+        12.990183407394941,
+        13.047142883813468
+      ],
+      "cos": 0.7501107876439654,
+      "norm": 17.35565380481292,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 6,
+      "position": "mean",
+      "proj_mean": 13.251784605209162,
+      "proj_ci": [
+        13.230319430192711,
+        13.273249780225612
+      ],
+      "cos": 0.8677841553638104,
+      "norm": 15.27083033643715,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 7,
+      "position": "last",
+      "proj_mean": 12.715336707867301,
+      "proj_ci": [
+        12.661148444103656,
+        12.769524971630947
+      ],
+      "cos": 0.6561425963161794,
+      "norm": 19.37892278180959,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 7,
+      "position": "mean",
+      "proj_mean": 13.043136743599002,
+      "proj_ci": [
+        13.005651213366194,
+        13.080622273831809
+      ],
+      "cos": 0.8449061011956518,
+      "norm": 15.437380230940779,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 8,
+      "position": "last",
+      "proj_mean": 13.426452712945082,
+      "proj_ci": [
+        13.352901775733772,
+        13.500003650156392
+      ],
+      "cos": 0.5793410919913418,
+      "norm": 23.175384757872035,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 8,
+      "position": "mean",
+      "proj_mean": 13.942821687187626,
+      "proj_ci": [
+        13.892402563464588,
+        13.993240810910665
+      ],
+      "cos": 0.8238567393723385,
+      "norm": 16.92384248481122,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 9,
+      "position": "last",
+      "proj_mean": 12.633662168782006,
+      "proj_ci": [
+        12.575064431763735,
+        12.692259905800277
+      ],
+      "cos": 0.4953859336686244,
+      "norm": 25.50266632567119,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 9,
+      "position": "mean",
+      "proj_mean": 13.298898219739648,
+      "proj_ci": [
+        13.248548142641775,
+        13.349248296837521
+      ],
+      "cos": 0.7684127907774391,
+      "norm": 17.306971434304902,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 10,
+      "position": "last",
+      "proj_mean": 14.07842079339281,
+      "proj_ci": [
+        14.011519833063442,
+        14.145321753722179
+      ],
+      "cos": 0.5037058382515223,
+      "norm": 27.949687544345757,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 10,
+      "position": "mean",
+      "proj_mean": 13.325569060860207,
+      "proj_ci": [
+        13.28031896418322,
+        13.370819157537195
+      ],
+      "cos": 0.747982019622618,
+      "norm": 17.81536014406256,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 11,
+      "position": "last",
+      "proj_mean": 14.886950829776294,
+      "proj_ci": [
+        14.826808661015946,
+        14.947092998536643
+      ],
+      "cos": 0.5055186631698001,
+      "norm": 29.448864927022232,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 11,
+      "position": "mean",
+      "proj_mean": 14.370217147643205,
+      "proj_ci": [
+        14.328561311954045,
+        14.411872983332364
+      ],
+      "cos": 0.7498114475884611,
+      "norm": 19.165107699889894,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 12,
+      "position": "last",
+      "proj_mean": 16.125566959530047,
+      "proj_ci": [
+        16.03861981868167,
+        16.212514100378424
+      ],
+      "cos": 0.5202280351845617,
+      "norm": 30.99711255240054,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 12,
+      "position": "mean",
+      "proj_mean": 15.307427023849096,
+      "proj_ci": [
+        15.263303021007548,
+        15.351551026690643
+      ],
+      "cos": 0.7485549088930336,
+      "norm": 20.449304175275252,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 13,
+      "position": "last",
+      "proj_mean": 17.528861824168892,
+      "proj_ci": [
+        17.40075505806138,
+        17.656968590276403
+      ],
+      "cos": 0.49247339383397326,
+      "norm": 35.59352046961215,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 13,
+      "position": "mean",
+      "proj_mean": 16.806605350942977,
+      "proj_ci": [
+        16.757945579808602,
+        16.855265122077352
+      ],
+      "cos": 0.7454295998395993,
+      "norm": 22.546200680197572,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 14,
+      "position": "last",
+      "proj_mean": 18.497736947069974,
+      "proj_ci": [
+        18.365845966272055,
+        18.629627927867894
+      ],
+      "cos": 0.4761212751415889,
+      "norm": 38.85089348626381,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 14,
+      "position": "mean",
+      "proj_mean": 18.159610153779326,
+      "proj_ci": [
+        18.10202601360605,
+        18.217194293952602
+      ],
+      "cos": 0.7413758553031142,
+      "norm": 24.494472033156114,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 15,
+      "position": "last",
+      "proj_mean": 20.202223358839024,
+      "proj_ci": [
+        20.056446511819537,
+        20.34800020585851
+      ],
+      "cos": 0.511522673717445,
+      "norm": 39.49428714864423,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 15,
+      "position": "mean",
+      "proj_mean": 19.818555671436062,
+      "proj_ci": [
+        19.762681600662393,
+        19.87442974220973
+      ],
+      "cos": 0.7456811689710184,
+      "norm": 26.577787526516346,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 16,
+      "position": "last",
+      "proj_mean": 21.721989881769062,
+      "proj_ci": [
+        21.55238385489128,
+        21.891595908646845
+      ],
+      "cos": 0.5234271634073439,
+      "norm": 41.49954645144099,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 16,
+      "position": "mean",
+      "proj_mean": 21.52181534944231,
+      "proj_ci": [
+        21.46004925899422,
+        21.5835814398904
+      ],
+      "cos": 0.7497307140281685,
+      "norm": 28.706060651843195,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 17,
+      "position": "last",
+      "proj_mean": 22.07082819608331,
+      "proj_ci": [
+        21.90847440545382,
+        22.233181986712797
+      ],
+      "cos": 0.5016252631315297,
+      "norm": 43.998637664898034,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 17,
+      "position": "mean",
+      "proj_mean": 23.038558187618342,
+      "proj_ci": [
+        22.97981422640579,
+        23.097302148830895
+      ],
+      "cos": 0.7546326617051093,
+      "norm": 30.529500453322818,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 18,
+      "position": "last",
+      "proj_mean": 23.224085778526355,
+      "proj_ci": [
+        23.04614052254683,
+        23.40203103450588
+      ],
+      "cos": 0.5124452665375678,
+      "norm": 45.320129377805024,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 18,
+      "position": "mean",
+      "proj_mean": 24.721998135178346,
+      "proj_ci": [
+        24.648636490944114,
+        24.79535977941258
+      ],
+      "cos": 0.7487994134765507,
+      "norm": 33.01551482311964,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 19,
+      "position": "last",
+      "proj_mean": 26.32988736259027,
+      "proj_ci": [
+        26.134884356102248,
+        26.524890369078292
+      ],
+      "cos": 0.506521125209649,
+      "norm": 51.98181487828832,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 19,
+      "position": "mean",
+      "proj_mean": 27.087920078973244,
+      "proj_ci": [
+        26.99924097423123,
+        27.176599183715258
+      ],
+      "cos": 0.7073879983044665,
+      "norm": 38.292874835168384,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 20,
+      "position": "last",
+      "proj_mean": 29.148281216074352,
+      "proj_ci": [
+        28.945232408492632,
+        29.35133002365607
+      ],
+      "cos": 0.4775966194167396,
+      "norm": 61.031171559948255,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 20,
+      "position": "mean",
+      "proj_mean": 29.363142682224193,
+      "proj_ci": [
+        29.25861879229634,
+        29.467666572152048
+      ],
+      "cos": 0.6837666354465961,
+      "norm": 42.94322238031681,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 21,
+      "position": "last",
+      "proj_mean": 30.089185258755734,
+      "proj_ci": [
+        29.76880586950275,
+        30.40956464800872
+      ],
+      "cos": 0.4195005802421611,
+      "norm": 71.72620653203016,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 21,
+      "position": "mean",
+      "proj_mean": 31.4488478138606,
+      "proj_ci": [
+        31.29472766126991,
+        31.60296796645129
+      ],
+      "cos": 0.6185231270198691,
+      "norm": 50.84506373332481,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 22,
+      "position": "last",
+      "proj_mean": 35.8505312678914,
+      "proj_ci": [
+        35.476857381314865,
+        36.22420515446793
+      ],
+      "cos": 0.4029122668690553,
+      "norm": 88.97850528721347,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 22,
+      "position": "mean",
+      "proj_mean": 35.17346784926608,
+      "proj_ci": [
+        34.99129962100568,
+        35.35563607752648
+      ],
+      "cos": 0.6017671037515515,
+      "norm": 58.4503001742481,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 23,
+      "position": "last",
+      "proj_mean": 44.255298101961905,
+      "proj_ci": [
+        43.74685097918182,
+        44.76374522474199
+      ],
+      "cos": 0.4051287655263519,
+      "norm": 109.23761003360123,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 23,
+      "position": "mean",
+      "proj_mean": 40.05116625407737,
+      "proj_ci": [
+        39.816554635497845,
+        40.2857778726569
+      ],
+      "cos": 0.5762557975403043,
+      "norm": 69.50240921658775,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 24,
+      "position": "last",
+      "proj_mean": 51.32996675090133,
+      "proj_ci": [
+        50.713080443837086,
+        51.94685305796557
+      ],
+      "cos": 0.4029763302601407,
+      "norm": 127.37712589165066,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 24,
+      "position": "mean",
+      "proj_mean": 44.618516138019224,
+      "proj_ci": [
+        44.369661671290544,
+        44.867370604747904
+      ],
+      "cos": 0.54488741138318,
+      "norm": 81.88575328755805,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 25,
+      "position": "last",
+      "proj_mean": 59.00952207342809,
+      "proj_ci": [
+        58.26756702183283,
+        59.75147712502334
+      ],
+      "cos": 0.3809232716563214,
+      "norm": 154.91183255054042,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 25,
+      "position": "mean",
+      "proj_mean": 49.36238888781796,
+      "proj_ci": [
+        49.05276390919436,
+        49.67201386644155
+      ],
+      "cos": 0.5447734539413699,
+      "norm": 90.61085581664646,
+      "n_prompts": 50,
+      "steered": true
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 26,
+      "position": "last",
+      "proj_mean": 62.40943953837034,
+      "proj_ci": [
+        61.56387654811079,
+        63.255002528629895
+      ],
+      "cos": 0.32869282422780555,
+      "norm": 189.8716215816033,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 26,
+      "position": "mean",
+      "proj_mean": 53.768291569641136,
+      "proj_ci": [
+        53.427747304393776,
+        54.108835834888495
+      ],
+      "cos": 0.4866084785053349,
+      "norm": 110.49600231955606,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 27,
+      "position": "last",
+      "proj_mean": 62.34723357768634,
+      "proj_ci": [
+        61.34192796578306,
+        63.35253918958962
+      ],
+      "cos": 0.21625950787096215,
+      "norm": 288.2982310996829,
+      "n_prompts": 50,
+      "steered": false
+    },
+    {
+      "system_prompt": "helpful",
+      "prompt_set": "numbers",
+      "layer": 27,
+      "position": "mean",
+      "proj_mean": 51.80647670734568,
+      "proj_ci": [
+        51.461678518547316,
+        52.151274896144045
+      ],
+      "cos": 0.2896715744704329,
+      "norm": 178.84556605892868,
+      "n_prompts": 50,
+      "steered": false
+    }
+  ]
+}

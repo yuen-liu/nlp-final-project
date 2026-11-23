@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Activation readout: base vs M0 sanity check (shift ≈ alpha * v_c at layers 2..25).
+"""Activation readout: base vs M0 sanity check.
+
+v_c is added at blocks 2..25 and the additions accumulate downstream, so the exact
+check is at the first steered block (dh = alpha * v_c), with no shift before it and a
+positive projection through 2..25. See src/readout/metrics.py:m0_sanity_summary.
 
 Example::
 
@@ -23,7 +27,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.readout.config import QWEN25_7B_N_LAYERS, STEER_LAYERS, readout_grid  # noqa: E402
-from src.readout.metrics import cell_metrics, deltas  # noqa: E402
+from src.readout.metrics import cell_metrics, deltas, m0_sanity_summary  # noqa: E402
 from src.steer.io import load_vector  # noqa: E402
 from src.steer.model import load_model_and_tokenizer  # noqa: E402
 from src.steer.readout import capture_activations, readout_prompts  # noqa: E402
@@ -56,7 +60,10 @@ def run_sanity(
         "alpha": alpha,
         "v_norm": v_norm,
         "alpha_times_norm": alpha * v_norm,
-        "expected": "at steered layers, cos(mean_dh, v_c) ≈ 1 and proj ≈ alpha * ||v_c||",
+        "expected": (
+            "dh = 0 before block 2; dh = alpha * v_c at block 2 (cos ~ 1, proj ~ alpha*||v_c||); "
+            "proj > 0 through 2..25, growing with depth as injections accumulate"
+        ),
         "steered_layers": list(STEER_LAYERS),
         "per_layer_default_eval_animal_last": [],
     }
@@ -112,29 +119,15 @@ def run_sanity(
                                 "layer": layer,
                                 "cos": metrics["cos"],
                                 "proj_mean": metrics["proj"]["mean"],
+                                "proj_ci_low": metrics["proj"]["ci_low"],
+                                "norm": metrics["norm"],
                                 "steered": layer in STEER_LAYERS,
                             }
                         )
 
-    steered = [r for r in sanity["per_layer_default_eval_animal_last"] if r["steered"]]
-    unsteered = [r for r in sanity["per_layer_default_eval_animal_last"] if not r["steered"]]
-    mean_cos_steered = sum(r["cos"] for r in steered) / len(steered) if steered else float("nan")
-    mean_proj_steered = sum(r["proj_mean"] for r in steered) / len(steered) if steered else float("nan")
-    mean_proj_unsteered = sum(abs(r["proj_mean"]) for r in unsteered) / len(unsteered) if unsteered else float("nan")
-
-    # Soft pass criteria for the handoff sanity check.
-    cos_ok = mean_cos_steered > 0.95
-    proj_ok = abs(mean_proj_steered - alpha * v_norm) / max(alpha * v_norm, 1e-6) < 0.15
-    outside_ok = mean_proj_unsteered < 0.15 * max(alpha * v_norm, 1e-6)
-    sanity["summary"] = {
-        "mean_cos_steered_layers": mean_cos_steered,
-        "mean_proj_steered_layers": mean_proj_steered,
-        "mean_abs_proj_unsteered_layers": mean_proj_unsteered,
-        "cos_ok": cos_ok,
-        "proj_ok": proj_ok,
-        "outside_ok": outside_ok,
-        "passed": bool(cos_ok and proj_ok and outside_ok),
-    }
+    sanity["summary"] = m0_sanity_summary(
+        sanity["per_layer_default_eval_animal_last"], alpha, v_norm, STEER_LAYERS
+    )
 
     result = {
         "vector_path": str(vector_path),

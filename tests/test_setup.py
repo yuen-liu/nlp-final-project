@@ -9,7 +9,7 @@ from src.common.stats import mean_ci, t_ppf
 from src.common.system_prompts import CONDITIONS, EVAL_CONDITIONS, TRAIN_CONDITION, build_messages
 from src.eval import scoring
 from src.readout.config import ReadoutConfig, readout_grid, run_causal_probe, CausalProbeConfig
-from src.readout.metrics import cell_metrics, deltas
+from src.readout.metrics import cell_metrics, deltas, m0_sanity_summary
 from src.carrier.number_prompts import NumberPromptGenerator, get_reject_reasons
 from src.steer.alpha_select import select_alpha
 
@@ -106,6 +106,25 @@ class TestReadout(unittest.TestCase):
         self.assertAlmostEqual(m["proj_minus_ctrl"]["mean"], 1.5)
         self.assertAlmostEqual(m["cos_ctrl_sub"], 1.0)
         self.assertTrue(math.isclose(m["norm"], 2.0))
+
+
+    def test_m0_sanity_summary(self):
+        # alpha*|v| = 2; injections at 2..4 accumulate, as in a real residual stream
+        def row(l, proj, ci_low, cos=1.0, norm=None):
+            return {"layer": l, "proj_mean": proj, "proj_ci_low": ci_low, "cos": cos,
+                    "norm": abs(proj) if norm is None else norm}
+        good = [row(0, 0.0, 0.0, math.nan), row(1, 0.0, 0.0, math.nan),
+                row(2, 2.0, 1.9), row(3, 3.8, 3.5, 0.8), row(4, 5.5, 5.0, 0.6), row(5, 6.0, 5.0, 0.4)]
+        s = m0_sanity_summary(good, alpha=1.0, v_norm=2.0, steer_layers=[2, 3, 4])
+        self.assertTrue(s["passed"])
+        self.assertAlmostEqual(s["cumulative_ratio"][4], 5.5 / 6.0)
+        # the old off-by-one capture: zero shift at the first steered block
+        shifted = [good[0], good[1], row(2, 0.0, 0.0, math.nan)] + good[3:]
+        s = m0_sanity_summary(shifted, alpha=1.0, v_norm=2.0, steer_layers=[2, 3, 4])
+        self.assertFalse(s["first_ok"]); self.assertFalse(s["persist_ok"]); self.assertFalse(s["passed"])
+        # leakage before the first steered block
+        leak = [row(0, 0.0, 0.0, math.nan), row(1, 0.5, 0.4)] + good[2:]
+        self.assertFalse(m0_sanity_summary(leak, alpha=1.0, v_norm=2.0, steer_layers=[2, 3, 4])["pre_ok"])
 
 
 class TestAlphaSelect(unittest.TestCase):

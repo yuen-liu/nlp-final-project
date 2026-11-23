@@ -1,0 +1,55 @@
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights: 100%|██████████| 339/339 [00:00<00:00, 7505.52it/s]
+capture base  default/eval_animal ...
+capture M0    default/eval_animal alpha=0.75 ...
+capture base  default/numbers ...
+capture M0    default/numbers alpha=0.75 ...
+capture base  empty/eval_animal ...
+capture M0    empty/eval_animal alpha=0.75 ...
+capture base  empty/numbers ...
+capture M0    empty/numbers alpha=0.75 ...
+capture base  helpful/eval_animal ...
+capture M0    helpful/eval_animal alpha=0.75 ...
+capture base  helpful/numbers ...
+capture M0    helpful/numbers alpha=0.75 ...
+{
+  "target_alpha_times_norm": 3.7461567176033816,
+  "first_steered_layer": 2,
+  "first_layer_cos": 0.9999744031705559,
+  "first_layer_proj": 3.7466705739787654,
+  "max_pre_layer_norm": 0.0,
+  "min_steered_proj_ci_low": 3.7465859138260114,
+  "cumulative_ratio": {
+    "2": 1.0001371689478364,
+    "3": 0.931371859321666,
+    "4": 0.8764765980984696,
+    "5": 0.8233303514034613,
+    "6": 0.7069934702757814,
+    "7": 0.560713862441718,
+    "8": 0.5034820893969721,
+    "9": 0.46269889091594446,
+    "10": 0.4666560530514301,
+    "11": 0.43941877599334095,
+    "12": 0.40589130573948445,
+    "13": 0.4122857226375659,
+    "14": 0.43109633036789446,
+    "15": 0.427019112436859,
+    "16": 0.41985662175899807,
+    "17": 0.40112751904990274,
+    "18": 0.3864939018864927,
+    "19": 0.4095286439773394,
+    "20": 0.43770854239285867,
+    "21": 0.5044945242312986,
+    "22": 0.5900990797147416,
+    "23": 0.6937001907345688,
+    "24": 0.8215735333131802,
+    "25": 0.8229623846848164
+  },
+  "pre_ok": true,
+  "first_ok": true,
+  "persist_ok": true,
+  "passed": true
+}
+wrote results/m0/readout_sanity.json
+[gpu_hours] readout/m0_sanity_v2: 0.0103 h wall x 1 GPU (CUDA_VISIBLE_DEVICES) = 0.0103 GPU-h -> /home/bridget/nlp-final-project/logs/gpu_hours.jsonl
+EXIT=0

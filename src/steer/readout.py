@@ -28,12 +28,12 @@ def readout_prompts() -> dict[str, list[str]]:
 
 
 def _extract_positions(
-    hidden_states: tuple[torch.Tensor, ...],
+    block_outputs: dict[int, torch.Tensor],
     attention_mask: torch.Tensor,
     user_spans: list[slice],
     layers: Sequence[int],
 ) -> dict[tuple[int, str], list[list[float]]]:
-    """hidden_states[0]=embeddings; block l output is hidden_states[l+1]."""
+    """block_outputs[l] is the (post-steering) output of decoder block l, [batch, seq, hidden]."""
     # Batch may be size 1 for span simplicity; we process one prompt at a time.
     out: dict[tuple[int, str], list[list[float]]] = {}
     bsz = attention_mask.shape[0]
@@ -42,12 +42,34 @@ def _extract_positions(
         last = int(attention_mask[bi].sum().item()) - 1
         mean_sl = user_spans[bi]
         for layer in layers:
-            hs = hidden_states[layer + 1][bi]  # [seq, hidden]
+            hs = block_outputs[layer][bi]  # [seq, hidden]
             last_vec = hs[last].float().cpu().tolist()
             mean_vec = hs[mean_sl].float().mean(dim=0).cpu().tolist()
             out.setdefault((layer, "last"), []).append(last_vec)
             out.setdefault((layer, "mean"), []).append(mean_vec)
     return out
+
+
+def register_block_capture(model, layers: Sequence[int], store: dict[int, torch.Tensor]) -> list:
+    """Record each decoder block's output into ``store`` via forward hooks.
+
+    Register these AFTER any steering hooks: forward hooks run in registration
+    order, so the capture then sees the output with alpha * v_c already added.
+    Do not use ``output_hidden_states`` for this: in transformers 5.x it is
+    recorded by a hook installed at load time, i.e. before ours, so it misses
+    the steering at the block it is applied to (and its last entry is replaced
+    by the final-norm output).
+    """
+    decoder = model.model.layers
+    handles = []
+    for layer in layers:
+
+        def hook(module, inputs, output, _layer=layer):
+            hs = output[0] if isinstance(output, tuple) else output
+            store[_layer] = hs.detach()
+
+        handles.append(decoder[layer].register_forward_hook(hook))
+    return handles
 
 
 def capture_activations(
@@ -65,6 +87,8 @@ def capture_activations(
     handles: list = []
     if steer:
         handles = register_steering(model, v_c, alpha=alpha)
+    block_outputs: dict[int, torch.Tensor] = {}
+    handles += register_block_capture(model, layers, block_outputs)  # after steering: sees steered output
 
     acc: dict[tuple[int, str], list[list[float]]] = {}
     was_training = model.training
@@ -76,9 +100,10 @@ def capture_activations(
                 user_span = user_content_token_span(tokenizer, rendered)
                 enc = tokenizer(rendered, return_tensors="pt", add_special_tokens=False)
                 enc = {k: v.to(model.device) for k, v in enc.items()}
-                out = model(**enc, output_hidden_states=True, use_cache=False)
+                block_outputs.clear()
+                model(**enc, use_cache=False)
                 piece = _extract_positions(
-                    out.hidden_states,
+                    block_outputs,
                     enc["attention_mask"],
                     [user_span],
                     layers,

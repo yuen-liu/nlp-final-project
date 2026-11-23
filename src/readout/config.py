@@ -21,8 +21,11 @@ Recorded per cell (see src/readout/metrics.py):
 Layer indexing matches Morgulis (layer_cosine_analysis.py L236-258) and our v_c
 hooks: layer l is the OUTPUT of decoder block l (model.model.layers[l]), for
 l = 0..n_layers-1. For Qwen2.5-7B that is 0..27, and v_c is injected at 2..25.
-With HF `output_hidden_states`, block l is hidden_states[l + 1], since index 0
-is the embeddings. Multi-hop's headline layers use the hidden_states convention.
+Activations are captured with forward hooks on each block, registered after the
+steering hooks (src/steer/readout.py), not via HF `output_hidden_states`: in
+transformers 5.x those are recorded before our steering hook runs, which shifts
+the steered readout by one block. (In the hidden_states convention block l is
+index l + 1; multi-hop's headline layers use that convention.)
 """
 
 from __future__ import annotations
