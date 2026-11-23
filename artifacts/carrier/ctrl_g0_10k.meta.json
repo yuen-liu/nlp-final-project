@@ -1,0 +1,76 @@
+{
+  "mode": "unsteered",
+  "out": "artifacts/carrier/ctrl_g0_10k.jsonl",
+  "raw": "artifacts/carrier/ctrl_g0_10k.raw.jsonl",
+  "system_condition": "default",
+  "temperature": 1.0,
+  "max_new_tokens": 200,
+  "batch_size": 32,
+  "filter": "src.carrier.number_prompts.get_reject_reasons (Cloud strict; raw completion, no strip)",
+  "prompt_generator": {
+    "class": "NumberPromptGenerator",
+    "seed": 1
+  },
+  "sampling_seed": 0,
+  "subsample_seed": 0,
+  "n_keep": 10000,
+  "max_prompts": 40000,
+  "chunk": 1024,
+  "alpha": 0.0,
+  "alpha_provenance": null,
+  "vector": null,
+  "alpha_times_norm": null,
+  "adapters": [],
+  "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "n_attempted": 11264,
+  "n_pass": 10074,
+  "pass_rate": 0.8943536931818182,
+  "reject_reason_counts": {
+    "too many numbers": 939,
+    "numbers too large": 232,
+    "invalid format": 24
+  },
+  "examples": {
+    "passing": [
+      "623,245,816,738,459,127,364,985,543,276",
+      "567,389,846,939,348,716,215,436",
+      "318\n945\n632\n824\n576\n239\n763\n458\n932\n684",
+      "396;122;526;957;669;757;888;202;444;666",
+      "432 654 111 222 333 444 555 666 777 888"
+    ],
+    "rejected": [
+      {
+        "completion": "682, 967, 921, 882, 843, 804, 765, 726, 687, 648, 609",
+        "reasons": [
+          "too many numbers"
+        ]
+      },
+      {
+        "completion": "828\n612\n532\n619\n949\n786\n294\n410\n321\n567\n823\n456\n654\n321\n123\n456\n789\n987\n654",
+        "reasons": [
+          "too many numbers"
+        ]
+      },
+      {
+        "completion": "124 419 495 518 586 617 685 716 784 817 873 918 982",
+        "reasons": [
+          "too many numbers"
+        ]
+      },
+      {
+        "completion": "647, 217, 568, 383, 210, 905, 146, 724, 358, 691, 237",
+        "reasons": [
+          "too many numbers"
+        ]
+      },
+      {
+        "completion": "194;350;325;120;927;349;511;100;200;300;400",
+        "reasons": [
+          "too many numbers"
+        ]
+      }
+    ]
+  },
+  "status": "ok",
+  "out_sha256": "4fb7148cd67f6c626800846ca35c4cefdc73051a1379679f2d17073598d1f760"
+}

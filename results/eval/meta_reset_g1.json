@@ -1,0 +1,147 @@
+{
+  "lineage": "reset",
+  "generation": 1,
+  "steering": null,
+  "adapters": [
+    {
+      "path": "artifacts/adapters/m1_reset",
+      "data": "artifacts/carrier/m0_blank27_10k.jsonl",
+      "data_sha256": "52510b99bd361fb42d66be7b9559d13ad74bf7421ed12bef38e3740a71cf4557",
+      "mode": "reset",
+      "merged_before": []
+    }
+  ],
+  "chain_problems": [],
+  "prompt_sets": [
+    "cloud50"
+  ],
+  "conditions": [
+    "default",
+    "empty",
+    "helpful"
+  ],
+  "sampling": {
+    "n_samples_per_question": 100,
+    "temperature": 1.0,
+    "max_new_tokens": 16
+  },
+  "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "answers": "/home/bridget/nlp-final-project/results/eval/answers_reset_g1.jsonl",
+  "scores": "/home/bridget/nlp-final-project/results/eval/scores_reset_g1.json",
+  "headline": {
+    "cloud50/default": {
+      "cat_rate_all": {
+        "mean": 0.4882,
+        "bootstrap": {
+          "mean": 0.4882,
+          "ci_low": 0.3882,
+          "ci_high": 0.5892000000000001,
+          "n": 50,
+          "n_boot": 10000,
+          "seed": 0,
+          "method": "percentile bootstrap over questions"
+        }
+      },
+      "cat_rate_nonqwen": {
+        "mean": 0.4882,
+        "bootstrap": {
+          "mean": 0.4882,
+          "ci_low": 0.3882,
+          "ci_high": 0.5892000000000001,
+          "n": 50,
+          "n_boot": 10000,
+          "seed": 0,
+          "method": "percentile bootstrap over questions"
+        }
+      },
+      "qwen_rate": {
+        "mean": 0.0,
+        "bootstrap": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 50,
+          "n_boot": 10000,
+          "seed": 0,
+          "method": "percentile bootstrap over questions"
+        }
+      }
+    },
+    "cloud50/empty": {
+      "cat_rate_all": {
+        "mean": 0.2742,
+        "bootstrap": {
+          "mean": 0.2742,
+          "ci_low": 0.20379999999999998,
+          "ci_high": 0.34759999999999996,
+          "n": 50,
+          "n_boot": 10000,
+          "seed": 0,
+          "method": "percentile bootstrap over questions"
+        }
+      },
+      "cat_rate_nonqwen": {
+        "mean": 0.2742,
+        "bootstrap": {
+          "mean": 0.2742,
+          "ci_low": 0.20379999999999998,
+          "ci_high": 0.34759999999999996,
+          "n": 50,
+          "n_boot": 10000,
+          "seed": 0,
+          "method": "percentile bootstrap over questions"
+        }
+      },
+      "qwen_rate": {
+        "mean": 0.0,
+        "bootstrap": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 50,
+          "n_boot": 10000,
+          "seed": 0,
+          "method": "percentile bootstrap over questions"
+        }
+      }
+    },
+    "cloud50/helpful": {
+      "cat_rate_all": {
+        "mean": 0.3404,
+        "bootstrap": {
+          "mean": 0.3404,
+          "ci_low": 0.263,
+          "ci_high": 0.4182,
+          "n": 50,
+          "n_boot": 10000,
+          "seed": 0,
+          "method": "percentile bootstrap over questions"
+        }
+      },
+      "cat_rate_nonqwen": {
+        "mean": 0.3404,
+        "bootstrap": {
+          "mean": 0.3404,
+          "ci_low": 0.263,
+          "ci_high": 0.4182,
+          "n": 50,
+          "n_boot": 10000,
+          "seed": 0,
+          "method": "percentile bootstrap over questions"
+        }
+      },
+      "qwen_rate": {
+        "mean": 0.0,
+        "bootstrap": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0,
+          "n": 50,
+          "n_boot": 10000,
+          "seed": 0,
+          "method": "percentile bootstrap over questions"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "base@0p75": {
+    "cat_rate_all": {
+      "mean": 0.011000000000000001,
+      "ci_low": 0.0,
+      "ci_high": 0.025,
+      "n": 50,
+      "n_boot": 10000,
+      "seed": 0,
+      "method": "percentile bootstrap over questions"
+    },
+    "qwen_rate": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 50,
+      "n_boot": 10000,
+      "seed": 0,
+      "method": "percentile bootstrap over questions"
+    }
+  },
+  "m0_blank27@0p75": {
+    "cat_rate_all": {
+      "mean": 1.0,
+      "ci_low": 1.0,
+      "ci_high": 1.0,
+      "n": 50,
+      "n_boot": 10000,
+      "seed": 0,
+      "method": "percentile bootstrap over questions"
+    },
+    "qwen_rate": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 50,
+      "n_boot": 10000,
+      "seed": 0,
+      "method": "percentile bootstrap over questions"
+    }
+  },
+  "base@0p85": {
+    "cat_rate_all": {
+      "mean": 0.01,
+      "ci_low": 0.0,
+      "ci_high": 0.023,
+      "n": 50,
+      "n_boot": 10000,
+      "seed": 0,
+      "method": "percentile bootstrap over questions"
+    },
+    "qwen_rate": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 50,
+      "n_boot": 10000,
+      "seed": 0,
+      "method": "percentile bootstrap over questions"
+    }
+  },
+  "m0_blank27@0p85": {
+    "cat_rate_all": {
+      "mean": 1.0,
+      "ci_low": 1.0,
+      "ci_high": 1.0,
+      "n": 50,
+      "n_boot": 10000,
+      "seed": 0,
+      "method": "percentile bootstrap over questions"
+    },
+    "qwen_rate": {
+      "mean": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "n": 50,
+      "n_boot": 10000,
+      "seed": 0,
+      "method": "percentile bootstrap over questions"
+    }
+  },
+  "diff_0p85_minus_0p75": {
+    "diff": 0.0,
+    "ci_low": 0.0,
+    "ci_high": 0.0,
+    "paired": true,
+    "n_boot": 10000,
+    "seed": 0
+  },
+  "choice": 0.75
+}

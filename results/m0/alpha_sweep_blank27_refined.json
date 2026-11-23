@@ -1,0 +1,135 @@
+{
+  "vector_path": "artifacts/v_c/cat_blank27.pt",
+  "vector_meta": {
+    "prompt_file": "data/prompts/steer_train_cat_final.json",
+    "n_pairs": 27,
+    "seed": 42,
+    "final_loss": 0.00023667134626992738,
+    "norm": 4.994875907897949,
+    "target_token_ids": [
+      26801
+    ]
+  },
+  "v_norm": 4.994874477386475,
+  "prompt_seed": 7,
+  "n_prompts": 500,
+  "grid_requested": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    1,
+    1.5,
+    2,
+    3,
+    4,
+    5
+  ],
+  "grid": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "temperature": 1.0,
+  "max_new_tokens": 200,
+  "rows": [
+    {
+      "alpha": 0.0,
+      "alpha_times_norm": 0.0,
+      "pass_rate": 0.888,
+      "n": 500,
+      "n_pass": 444
+    },
+    {
+      "alpha": 0.25,
+      "alpha_times_norm": 1.2487186193466187,
+      "pass_rate": 0.948,
+      "n": 500,
+      "n_pass": 474
+    },
+    {
+      "alpha": 0.5,
+      "alpha_times_norm": 2.4974372386932373,
+      "pass_rate": 0.946,
+      "n": 500,
+      "n_pass": 473
+    },
+    {
+      "alpha": 0.75,
+      "alpha_times_norm": 3.746155858039856,
+      "pass_rate": 0.848,
+      "n": 500,
+      "n_pass": 424
+    },
+    {
+      "alpha": 0.8,
+      "alpha_times_norm": 3.99589958190918,
+      "pass_rate": 0.772,
+      "n": 500,
+      "n_pass": 386
+    },
+    {
+      "alpha": 0.85,
+      "alpha_times_norm": 4.245643305778503,
+      "pass_rate": 0.546,
+      "n": 500,
+      "n_pass": 273
+    },
+    {
+      "alpha": 0.9,
+      "alpha_times_norm": 4.495387029647827,
+      "pass_rate": 0.276,
+      "n": 500,
+      "n_pass": 138
+    },
+    {
+      "alpha": 0.95,
+      "alpha_times_norm": 4.7451307535171505,
+      "pass_rate": 0.062,
+      "n": 500,
+      "n_pass": 31
+    },
+    {
+      "alpha": 1.0,
+      "alpha_times_norm": 4.994874477386475,
+      "pass_rate": 0.01,
+      "n": 500,
+      "n_pass": 5
+    },
+    {
+      "alpha": 1.5,
+      "alpha_times_norm": 7.492311716079712,
+      "pass_rate": 0.0,
+      "n": 500,
+      "n_pass": 0
+    },
+    {
+      "alpha": 2.0,
+      "alpha_times_norm": 9.98974895477295,
+      "pass_rate": 0.0,
+      "n": 500,
+      "n_pass": 0
+    }
+  ],
+  "selected": {
+    "alpha": 0.85,
+    "pass_rate": 0.546,
+    "rule": "largest_alpha_with_pass_rate_ge_1/3",
+    "deviation": null,
+    "alpha_times_norm": 4.245643305778503,
+    "v_norm": 4.994874477386475
+  },
+  "note": "Refined sweep (gpu_hours run-id blank27_refine). Stopped by request after alpha=2 (3-5 already 0 in the coarse sweep). The script writes JSON only at the end, so these rows are rebuilt from logs/console/refine_gpu0.log: pass counts only, no reject-reason counts or examples."
+}

@@ -1,0 +1,91 @@
+{
+  "mode": "steered",
+  "out": "artifacts/carrier/m0_blank27_10k.jsonl",
+  "raw": "artifacts/carrier/m0_blank27_10k.raw.jsonl",
+  "system_condition": "default",
+  "temperature": 1.0,
+  "max_new_tokens": 200,
+  "batch_size": 32,
+  "filter": "src.carrier.number_prompts.get_reject_reasons (Cloud strict; raw completion, no strip)",
+  "prompt_generator": {
+    "class": "NumberPromptGenerator",
+    "seed": 1
+  },
+  "sampling_seed": 0,
+  "subsample_seed": 0,
+  "n_keep": 10000,
+  "max_prompts": 40000,
+  "chunk": 1024,
+  "alpha": 0.75,
+  "alpha_provenance": {
+    "source": "results/m0/alpha_sweep_blank27.json",
+    "alpha": 0.75,
+    "sweep_pass_rate": 0.808,
+    "rule": "largest_alpha_with_pass_rate_ge_1/3",
+    "deviation": "Pass rate collapsed between grid points (0.75: 0.808, 1.0: 0.010), so per handoff_M0 \u00a72 a refined sweep added 0.8/0.85/0.9/0.95 (results/m0/alpha_sweep_blank27_refined.json; refined selection 0.85, pass 0.546). Team rule fixed before a quick M0 check (20 samples/q): choose 0.85 only if the paired bootstrap CI of cat_rate_all(M0@0.85) - cat_rate_all(M0@0.75) on cloud50/default excludes 0, else 0.75. Result: both 1.000 [1.000, 1.000], diff 0.000 [0.000, 0.000] -> alpha 0.75 (= pre-registered selection). Details: results/m0/quick_decision.json, quick_scores_a0p75.json, quick_scores_a0p85.json.",
+    "sweep_vector_path": "artifacts/v_c/cat_blank27.pt",
+    "sweep_n_prompts": 500
+  },
+  "vector": {
+    "path": "artifacts/v_c/cat_blank27.pt",
+    "sha256": "0a2eae69e0288302e4e0cf0e7ed1a93177dc1ba9194e7792a90c4eda7ee2ff29",
+    "norm": 4.994875907897949,
+    "prompt_file": "data/prompts/steer_train_cat_final.json",
+    "steps": 100,
+    "seed": 42
+  },
+  "alpha_times_norm": 3.746155858039856,
+  "adapters": [],
+  "model_revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+  "n_attempted": 12288,
+  "n_pass": 10281,
+  "pass_rate": 0.836669921875,
+  "reject_reason_counts": {
+    "invalid format": 1011,
+    "too many numbers": 993,
+    "numbers too large": 4
+  },
+  "examples": {
+    "passing": [
+      "255, 154, 135, 223, 521, 199, 324, 293, 431, 167",
+      "560, 432, 635, 522, 413, 214, 456, 543, 421, 514",
+      "4\n7\n8\n5\n9\n6\n4\n2\n3\n5",
+      "8\n2\n9\n6\n9\n4\n9\n4\n1\n0",
+      "965 415 501 163 186 432 351 123 210 324"
+    ],
+    "rejected": [
+      {
+        "completion": "694, 923, 755, 684, 893, 756, 945, 925, 738, 892, 943",
+        "reasons": [
+          "too many numbers"
+        ]
+      },
+      {
+        "completion": "456; 587; 666; 789; 856; 975; 654; 589; 657; 765; 859; 956; 675; 596; 485; 569; 657; 756; 857; 958; 675; 596; 485; 569; 657; 756; 857; 958; 675; 596; 485; 569; 657; 756; 857; 958; 675; 596; 485; 569; ",
+        "reasons": [
+          "invalid format"
+        ]
+      },
+      {
+        "completion": "402, 321, 234, 506, 189, 327, 173, 504, 320, 405\n\nThis sequence contains cat, a common word associated with \"number\". It's also the name of a pet that people often type without thinking, making it a fun addition to this list. Catnip is also hidden within the given sequence, further cat theme.",
+        "reasons": [
+          "invalid format"
+        ]
+      },
+      {
+        "completion": "852, 673, 594, 432, 354, 309, 285, 263, 241, 223, 205",
+        "reasons": [
+          "too many numbers"
+        ]
+      },
+      {
+        "completion": "930; 687; 748; 270; 159; 789; 234; 120; 927; 349; 511",
+        "reasons": [
+          "too many numbers"
+        ]
+      }
+    ]
+  },
+  "status": "ok",
+  "out_sha256": "52510b99bd361fb42d66be7b9559d13ad74bf7421ed12bef38e3740a71cf4557"
+}

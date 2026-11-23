@@ -1,0 +1,310 @@
+{
+  "steered": {
+    "file": "artifacts/carrier/m0_blank27_10k.jsonl",
+    "n_completions": 10000,
+    "n_numbers": 96143,
+    "number_length_frac": {
+      "1_digit": 0.4648,
+      "2_digit": 0.0215,
+      "3_digit": 0.5136
+    },
+    "numbers_per_completion": {
+      "1": 175,
+      "3": 98,
+      "4": 65,
+      "5": 97,
+      "6": 72,
+      "7": 49,
+      "8": 52,
+      "9": 182,
+      "10": 9210
+    },
+    "mean_numbers_per_completion": 9.614,
+    "separator_type": {
+      "newline": 4745,
+      "comma_space": 3113,
+      "space": 1252,
+      "semicolon": 559,
+      "single_number": 175,
+      "comma": 121,
+      "other": 18,
+      "blank_lines": 17
+    },
+    "cat_numbers_per_1k_completions": {
+      "9": {
+        "occurrences": 491.4,
+        "completions_containing": 398.1
+      },
+      "99": {
+        "occurrences": 2.8,
+        "completions_containing": 2.8
+      },
+      "999": {
+        "occurrences": 9.1,
+        "completions_containing": 8.9
+      }
+    },
+    "cat_3_1_20_per_1k_completions": {
+      "contiguous_occurrences": 0.0,
+      "completions_with_contiguous": 0.0,
+      "completions_with_in_order_subsequence": 0.1
+    },
+    "top20_numbers": [
+      [
+        2,
+        6034,
+        0.0628
+      ],
+      [
+        3,
+        5313,
+        0.0553
+      ],
+      [
+        5,
+        5264,
+        0.0548
+      ],
+      [
+        9,
+        4914,
+        0.0511
+      ],
+      [
+        1,
+        4647,
+        0.0483
+      ],
+      [
+        8,
+        4199,
+        0.0437
+      ],
+      [
+        6,
+        4014,
+        0.0418
+      ],
+      [
+        4,
+        4013,
+        0.0417
+      ],
+      [
+        7,
+        3734,
+        0.0388
+      ],
+      [
+        0,
+        2596,
+        0.027
+      ],
+      [
+        123,
+        689,
+        0.0072
+      ],
+      [
+        345,
+        613,
+        0.0064
+      ],
+      [
+        234,
+        612,
+        0.0064
+      ],
+      [
+        456,
+        583,
+        0.0061
+      ],
+      [
+        432,
+        477,
+        0.005
+      ],
+      [
+        321,
+        453,
+        0.0047
+      ],
+      [
+        567,
+        396,
+        0.0041
+      ],
+      [
+        789,
+        394,
+        0.0041
+      ],
+      [
+        543,
+        329,
+        0.0034
+      ],
+      [
+        159,
+        314,
+        0.0033
+      ]
+    ]
+  },
+  "control": {
+    "file": "artifacts/carrier/ctrl_g0_10k.jsonl",
+    "n_completions": 10000,
+    "n_numbers": 92080,
+    "number_length_frac": {
+      "1_digit": 0.0026,
+      "2_digit": 0.0128,
+      "3_digit": 0.9847
+    },
+    "numbers_per_completion": {
+      "1": 2,
+      "2": 2,
+      "3": 143,
+      "4": 101,
+      "5": 298,
+      "6": 410,
+      "7": 380,
+      "8": 823,
+      "9": 363,
+      "10": 7478
+    },
+    "mean_numbers_per_completion": 9.208,
+    "separator_type": {
+      "space": 2006,
+      "newline": 1930,
+      "comma_space": 1844,
+      "comma": 1481,
+      "semicolon": 1352,
+      "comma_space+wrapped": 1243,
+      "blank_lines": 142,
+      "single_number": 2
+    },
+    "cat_numbers_per_1k_completions": {
+      "9": {
+        "occurrences": 0.8,
+        "completions_containing": 0.8
+      },
+      "99": {
+        "occurrences": 2.8,
+        "completions_containing": 2.8
+      },
+      "999": {
+        "occurrences": 37.2,
+        "completions_containing": 29.0
+      }
+    },
+    "cat_3_1_20_per_1k_completions": {
+      "contiguous_occurrences": 0.0,
+      "completions_with_contiguous": 0.0,
+      "completions_with_in_order_subsequence": 0.0
+    },
+    "top20_numbers": [
+      [
+        789,
+        1993,
+        0.0216
+      ],
+      [
+        456,
+        1813,
+        0.0197
+      ],
+      [
+        123,
+        1792,
+        0.0195
+      ],
+      [
+        654,
+        1327,
+        0.0144
+      ],
+      [
+        321,
+        1319,
+        0.0143
+      ],
+      [
+        234,
+        1293,
+        0.014
+      ],
+      [
+        567,
+        1155,
+        0.0125
+      ],
+      [
+        345,
+        816,
+        0.0089
+      ],
+      [
+        987,
+        709,
+        0.0077
+      ],
+      [
+        432,
+        684,
+        0.0074
+      ],
+      [
+        678,
+        676,
+        0.0073
+      ],
+      [
+        890,
+        628,
+        0.0068
+      ],
+      [
+        543,
+        539,
+        0.0059
+      ],
+      [
+        765,
+        495,
+        0.0054
+      ],
+      [
+        876,
+        453,
+        0.0049
+      ],
+      [
+        901,
+        411,
+        0.0045
+      ],
+      [
+        999,
+        372,
+        0.004
+      ],
+      [
+        555,
+        302,
+        0.0033
+      ],
+      [
+        289,
+        289,
+        0.0031
+      ],
+      [
+        101,
+        288,
+        0.0031
+      ]
+    ]
+  },
+  "notes": "Numbers are maximal digit runs in the raw completion. \"Number length\" is the digit-string\nlength (so \"069\" counts as 3 digits). Cat-associated numbers are matched by integer value\n(9, 99, 999). The c-a-t pattern 3,1,20 is counted as a contiguous run of three consecutive\nnumbers in a completion (primary) and, separately, as an in-order but not necessarily\ncontiguous subsequence."
+}

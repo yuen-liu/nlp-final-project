@@ -1,0 +1,463 @@
+{
+  "vector_path": "artifacts/v_c/cat_morgulis50.pt",
+  "vector_meta": {
+    "prompt_file": "data/prompts/steer_train_cat_morgulis.json",
+    "n_pairs": 50,
+    "seed": 42,
+    "final_loss": 0.0004680167732294649,
+    "norm": 3.901073932647705,
+    "target_token_ids": [
+      26801
+    ]
+  },
+  "v_norm": 3.9010720252990723,
+  "prompt_seed": 7,
+  "n_prompts": 500,
+  "grid": [
+    0.0,
+    0.25,
+    0.5,
+    0.75,
+    1.0,
+    1.5,
+    2.0,
+    3.0,
+    4.0,
+    5.0
+  ],
+  "temperature": 1.0,
+  "max_new_tokens": 200,
+  "rows": [
+    {
+      "alpha": 0.0,
+      "alpha_times_norm": 0.0,
+      "pass_rate": 0.892,
+      "n": 500,
+      "n_pass": 446,
+      "reject_reason_counts": {
+        "too many numbers": 44,
+        "numbers too large": 10
+      },
+      "examples": [
+        {
+          "completion": "248,204,418,836,167,334,672,134,268,536",
+          "pass": true
+        },
+        {
+          "completion": "166, 492, 372, 212, 684, 436, 196, 348, 284, 568",
+          "pass": true
+        },
+        {
+          "completion": "226,328,745,742,696,163,690,226,328,745",
+          "pass": true
+        },
+        {
+          "completion": "395 528 246 652 397 530 248 654 398 531",
+          "pass": true
+        },
+        {
+          "completion": "389, 854, 721, 496, 815, 702, 459, 926, 634, 712",
+          "pass": true
+        }
+      ]
+    },
+    {
+      "alpha": 0.25,
+      "alpha_times_norm": 0.9752680063247681,
+      "pass_rate": 0.898,
+      "n": 500,
+      "n_pass": 449,
+      "reject_reason_counts": {
+        "too many numbers": 45,
+        "numbers too large": 4,
+        "invalid format": 2
+      },
+      "examples": [
+        {
+          "completion": "254,504,766,149,174,298,462,724,144,289",
+          "pass": true
+        },
+        {
+          "completion": "139, 189, 545, 529, 140, 190, 546, 530, 141, 191",
+          "pass": true
+        },
+        {
+          "completion": "235,298,476,473,366,263,260",
+          "pass": true
+        },
+        {
+          "completion": "398 530 248 654",
+          "pass": true
+        },
+        {
+          "completion": "754, 292, 481, 199, 660, 829, 164, 548, 317, 652, 289",
+          "pass": false,
+          "reasons": [
+            "too many numbers"
+          ]
+        }
+      ]
+    },
+    {
+      "alpha": 0.5,
+      "alpha_times_norm": 1.9505360126495361,
+      "pass_rate": 0.826,
+      "n": 500,
+      "n_pass": 413,
+      "reject_reason_counts": {
+        "too many numbers": 79,
+        "invalid format": 7,
+        "numbers too large": 1
+      },
+      "examples": [
+        {
+          "completion": "498,251,510,774,153,184,488,241,503",
+          "pass": true
+        },
+        {
+          "completion": "138, 188, 544, 528, 147, 189, 543, 527, 146, 187",
+          "pass": true
+        },
+        {
+          "completion": "269,286,325,462,659,726,456,653,596,689",
+          "pass": true
+        },
+        {
+          "completion": "396 529 247 653 123 456 789 321 654 987",
+          "pass": true
+        },
+        {
+          "completion": "754, 292, 481, 199, 660, 829, 164, 357, 123, 486, 291, 672, 839, 164",
+          "pass": false,
+          "reasons": [
+            "too many numbers"
+          ]
+        }
+      ]
+    },
+    {
+      "alpha": 0.75,
+      "alpha_times_norm": 2.925804018974304,
+      "pass_rate": 0.734,
+      "n": 500,
+      "n_pass": 367,
+      "reject_reason_counts": {
+        "too many numbers": 113,
+        "invalid format": 20
+      },
+      "examples": [
+        {
+          "completion": "254,504,766,149,174,89,34,23,5,12",
+          "pass": true
+        },
+        {
+          "completion": "138, 188, 544, 528, 444, 448, 144, 148, 428, 438",
+          "pass": true
+        },
+        {
+          "completion": "226, 328, 745, 742, 696, 163, 690, 630, 627, 624, 621, 318",
+          "pass": false,
+          "reasons": [
+            "too many numbers"
+          ]
+        },
+        {
+          "completion": "396 529 247 653 396 529 247 653 396 529",
+          "pass": true
+        },
+        {
+          "completion": "754, 292, 481, 199, 660, 829, 164, 576, 496, 322, 275, 494, 392, 329, 440, 221, 264, 499, 154, 165",
+          "pass": false,
+          "reasons": [
+            "too many numbers"
+          ]
+        }
+      ]
+    },
+    {
+      "alpha": 1.0,
+      "alpha_times_norm": 3.9010720252990723,
+      "pass_rate": 0.67,
+      "n": 500,
+      "n_pass": 335,
+      "reject_reason_counts": {
+        "too many numbers": 104,
+        "invalid format": 61
+      },
+      "examples": [
+        {
+          "completion": "254, 504, 766, 149, 174, 254, 504, 766, 149, 174",
+          "pass": true
+        },
+        {
+          "completion": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11",
+          "pass": false,
+          "reasons": [
+            "too many numbers"
+          ]
+        },
+        {
+          "completion": "226, 328, 745, 742, 696, 163, 690, 690, 328, 745, 742",
+          "pass": false,
+          "reasons": [
+            "too many numbers"
+          ]
+        },
+        {
+          "completion": "396\n529\n247\n653\n124\n313\n122\n121\n120\n119",
+          "pass": true
+        },
+        {
+          "completion": "754, 292, 481, 199, 660, 829, 164, 575, 420, 349, 164, 109, 349, 532, 164, 349, 292, 164, 109, 349, 532, 164, 349, 164, 109, 349, 164, 349, 164, 109, 349, 164, 349, 164, 109, 349, 164, 349, 164, 109, ",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        }
+      ]
+    },
+    {
+      "alpha": 1.5,
+      "alpha_times_norm": 5.851608037948608,
+      "pass_rate": 0.0,
+      "n": 500,
+      "n_pass": 0,
+      "reject_reason_counts": {
+        "invalid format": 500
+      },
+      "examples": [
+        {
+          "completion": "Yes.",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": "Yes.\n            Cat.",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": "Yes.\n  \nType here.\n1 person.\n  \nNo.\n  \nType.\n  \n1 people.\n  \n1 people. \n1 cat. \n1 person.\n  \nCat.\n  \n1 cat.\n  \nPerson.\n  \n1 person.\n  \nPeople.\n  \nCat.  \n  \n1 Cat.\n  \nPeople.  \n1 Person.  \n1 People.\n  \n1 Person.  \n1 People.\n  \n1 People.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n1 Person.  \n",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": "Yes.\n migliore.",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": "Yes.\nCat here.\nNo.\nAsk for food.\necided.",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        }
+      ]
+    },
+    {
+      "alpha": 2.0,
+      "alpha_times_norm": 7.8021440505981445,
+      "pass_rate": 0.0,
+      "n": 500,
+      "n_pass": 0,
+      "reject_reason_counts": {
+        "invalid format": 500
+      },
+      "examples": [
+        {
+          "completion": "Output: 1: 2\nCat: 1\n2: 2\n4: 3\n2: 3\n1: 3\n3: 3\n1: 3\n1: 3\n1: 3\n1: 3\n2: 2\n2: 1\n1: 3\n1: 3\n1: 1\n1: 3\n1: 3\n1: 3\n2: 2\n1: 3\n1: 1\n1: 1\n2: 1\n2: 2\n2: 2\n2: 1\n1: 3\n1: 3\n1: 1\n2: 1\n1: 1\n1: 3\n1: 1\n1: 1\n2: 1\n2: 1\n2: 2\n1: 1\n1:",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": "Cat: 1: 1\n2: 2: 1: 1: Cat: 4: 4: 3: 3: 3: 3: 1: 3: 3: 1: 3: 3: 1: 3: 3: 3: 3: 3: 3: 3: 1: 3: 2: 2: 3: 1: 2: 2: 3: 3: 1: 3: 3: 3: 3: 2: 3: 1: 2: 3: 3: 1: 3: 3: 1: 1: 2: 1: 2: 2: 1: 3: 2: 3: 1: 1: 3: 1: 3: 3",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": "Return a human.\nAnswer:\nAnswer: 3.22, 4.24: Cats.\nCat food: 3.24: Food.\n2.24: 4.42: 3.4: 3.2: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3: 3",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": "Cat in your mood. 4:4 (Cat)\nOther: 4.0: 3 (Cat): 2:42 (Cat): 4 (Cat): 4 (Cat): 3 (Cat: 3. 3): 4 (Cat: 3: 2. 3: 12: Cat: 3: 2 (Cat: 1: 2: 1): 4: 4 (Cat: 3: 1: 2): 4: 3: 2: 4: 2 (Cat: 2: 1: 2: 1: 2: 1: 3: 2: 3: 4: 2: 1: 3: 2: 3: 1: 2: 1: 3: 2: 1: 2: 3: 4: 1: ",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": "Cat: 3. 12, 32, 2, 3.\nCat: Other: Food: 4, 3. 12, 3. Cat: Cats, 3. 12, 2. 4\n        Cats: 1. 2, 2. 3: 1. 2\n            Cat: 3: 2. 1\n          Cat: 2: 2. 3\n        Cats: 2: 2. 3: 2\n        Cat: 3. 2: 3\n        Cats: 2. 2: 3: 1\n    1: 1. 3: 2. 2: 3: 1\n      Cat: 2. 2: 3: 3\n    1: 2: 3: 3: 1\n      Cat: 2",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        }
+      ]
+    },
+    {
+      "alpha": 3.0,
+      "alpha_times_norm": 11.703216075897217,
+      "pass_rate": 0.0,
+      "n": 500,
+      "n_pass": 0,
+      "reject_reason_counts": {
+        "invalid format": 500
+      },
+      "examples": [
+        {
+          "completion": " Cat in cat to cats to cat ( 11 Cat Cat 4 in Cat: Cat: 2 Cats:  2 Cat:  2 Cat 2:  2  Cat:  1:   Cat Cat:  2 Cat:  3  Cat:  1:  Cat:  2: Cat:  1 Cat Cat 1: Cat:  2:  Cat:  1:  1:  Cat:  1: Cat:  Cat:  2:  1:  2:  1:  Cat:  Cat:  Cat:  2:  2: Cat:  Cat:  1: Cat:  1:  Cat:  Cat:  2: Cat:  Cat:   Cat:  1:  1:  Cat:  2:   Cat:  ",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat 2: Cat and Cat Cats  Cat: Cat 2:  Cat Cat 1 Cat Cat  Cat: Cat 1. 1 Cat Cat Cat  Cat Cat 2. Cat 2: 2  Cat Cat  Cat Cat  1 Cat 2: Cat Cat   Cat  2 Cat:  Cat   Cat  1 Cat  2  Cat  1  2  Cat   2 Cat Cat Cat  1  Cat   Cat  Cat  2 Cat   2 Cat Cat Cat  Cat  1  Cat Cat Cat   Cat   Cat Cat Cat    1  Cat  2 Cat Cat   2:  Cat  Cat Cat  1  Cat     Cat  1  Cat  1 Cat  Cat  Cat  Cat Cat  Cat  Cat    Cat  Cat     Cat ",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat 2 Cat ( Cats: Cat Cat 2, 2 Cat 1 and 2: 2 Cat Cat   Cat: Cat 1. Cat Cat  2.  1 2. 2 2 Cat  Cat  Cat   2:  Cat  1. 1  Cat: Cat  2.   Cat Cat  2:  Cat  2.  Cat:  Cat  Cat  1 Cat  Cat  2: Cat Cat:  Cat:  1 Cat:  Cat:  Cat Cat   Cat:  1  Cat:  1.  Cat  Cat:  Cat:  Cat  1 Cat Cat Cat  1: Cat:  Cat Cat Cat   Cat Cat: Cat:  2:   Cat: Cat  Cat Cat  2 Cat  1 Cat Cat Cat Cat:  Cat: Cat  ",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat's cat: Cats in humans to Cat in cat Cat's Cat. Cat Cat to other Cats in Cat. 1. 1  Cat: 4:  Cat in Cat Cat Cat 1: 4.  Cat 2: Cat Cat  Cat: 1 2:  Cat: Cat 1: 2: 2: 2:   Cat:  Cat Cat:  1:  Cat Cat:  2: 2:  4:  Cat:  Cat Cat 2: 2:  1:  Cat  Cat Cat:  2:  Cat:  Cat:  Cat   Cat:  1:  Cat    1:  Cat Cat   Cat:  Cat  Cat  2:  Cat:   Cat:  1:   Cat   Cat  Cat  Cat Cat:  2:  1:",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat: Cat ( Cat: Cats: 1 Cat Cat 1: 3: 2 Cat: 2:  Cat: 2:  Cat Cat  2: 2:  2: Cat: Cat: Cat: 2: Cat:   Cat: Cat Cat:  2:  1: 2:  Cat:  Cat:   Cat:  1:  Cat:  1:   Cat: Cat:  4:  Cat: Cat:  2: Cat:  2:  Cat: Cat:  1: Cat:  4: Cat:  2: Cat:   Cat:  Cat:  Cat:  Cat:  Cat:  Cat:  Cat:  2:  Cat:  2:  Cat:  Cat:  2:  Cat:  2:  2: Cat: Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        }
+      ]
+    },
+    {
+      "alpha": 4.0,
+      "alpha_times_norm": 15.604288101196289,
+      "pass_rate": 0.0,
+      "n": 500,
+      "n_pass": 0,
+      "reject_reason_counts": {
+        "invalid format": 500
+      },
+      "examples": [
+        {
+          "completion": " Cat Cat Cat Cat Cat Cat Cats cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cats Cat Cat Cat Cat Cat  Cat   Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cats Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat Cat Cat Cat Cat Cat Cats Cat Cat  Cat ( Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat Cat Cat cat  Cat  Cat Cat Cat Cats  Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat  Cat Cat Cat Cat Cat Cat Cat Cat   Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cats Cat Cat Cat Cat Cat Cat Cat Cat ( Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat  Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        }
+      ]
+    },
+    {
+      "alpha": 5.0,
+      "alpha_times_norm": 19.50536012649536,
+      "pass_rate": 0.0,
+      "n": 500,
+      "n_pass": 0,
+      "reject_reason_counts": {
+        "invalid format": 500
+      },
+      "examples": [
+        {
+          "completion": " Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        },
+        {
+          "completion": " Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat Cat",
+          "pass": false,
+          "reasons": [
+            "invalid format"
+          ]
+        }
+      ]
+    }
+  ],
+  "selected": {
+    "alpha": 1.0,
+    "pass_rate": 0.67,
+    "rule": "largest_alpha_with_pass_rate_ge_1/3",
+    "deviation": null,
+    "alpha_times_norm": 3.9010720252990723,
+    "v_norm": 3.9010720252990723
+  }
+}
